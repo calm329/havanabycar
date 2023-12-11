@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <%- include('./partials/nav.ejs') %>
+
+        <%- include('./components/siteLocator.ejs', { 
+            itemOne: nav.home, 
+            itemTwo: contents.results, 
+            itemThree: contents.car, 
+            hasFilter: true, 
+            finalPrice: 0
+        }) %>
+
+        
+        <div class="red-wave-reverse up">
+            <img src="/static/media/red-wave.svg" alt="">
+        </div>
+
+        <div class="double-col">
+            
+            <%- include('./components/lateralSearch.ejs') %>
+            
+            <div>
+
+                <div class="results-container">
+                    <div class="res-count">
+                        <h2 class="primary">
+                            <%= contents.found %> <span class="accent"><%= data.cars.length %></span>
+                            
+                        </h2>
+                        <div class="filter-btn-mob right">
+                            <p class="filt-mob filter-trigger">
+                                <i class="fas fa-filter"></i>
+                                <span><%= contents.sort %></span>
+                            </p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="search-results">
+                        <% const baseUrl = lang == "ES" ? "/carro/" : "/ENG/car/" %>
+                        <% for (let i = 0; i < data.cars.length; i ++) { %>
+                            <%- include('./components/carCard.ejs', {car: data.cars[i], url: baseUrl }) %>
+                        <% } %>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

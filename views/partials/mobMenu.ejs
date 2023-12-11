@@ -1,0 +1,56 @@
+<div class="mobMenuLinks">
+    <div></div>
+    <div></div>
+    <div>
+        <p class="center">
+            <a href="<%= nav.homeLink %>" class="homeLink"><%= nav.home %></a>
+        </p>
+    </div>
+    
+
+    <div>
+        <p class="center">
+            <a href="#" class="carsLink fleetLink" id="carsLinkMob">
+                <%= nav.cars %>
+                <i class="fas fa-caret-square-down"></i>
+            </a>
+        </p>
+        <%- include('./navCarslist.ejs') %>
+    </div>
+
+    <!--
+        <div>
+            <p class="center">
+                <a href="./#promoWave" class="offersLinkMob"><%= nav.offers %></a>
+            </p>
+        </div>
+    -->
+    
+    <div>
+        <p class="center">
+            <a href="<%= nav.howLink %>" class="howLink"><%= nav.how %></a>
+        </p>
+    </div>
+    
+    <div>
+        <p class="center">
+            <a href="<%= nav.aboutLink %>" class="aboutLink"><%= nav.about %></a>
+        </p>
+    </div>
+    
+    <div>
+        <p class="center">
+            <a href="/ENG/" class="engFlag hidden" >
+                <img src="/static/media/us.png" alt="Lengua Inglesa" class="flag">
+            </a>
+            <a href="/" class="esFlag hidden" >
+                <img src="/static/media/es.png" alt="Spanish Language" class="flag">
+            </a>
+        </p>
+    </div>
+    <div>
+        <%- include("./currencySelector.ejs") %>
+    </div>
+    <div></div>
+    
+</div>

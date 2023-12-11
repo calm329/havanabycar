@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Panel de Control</title>
+        <meta name="description" content="Login">
+        <%- include('./partials/seo.ejs') %>
+            <%- include('./partials/head.ejs') %>
+                <link rel="stylesheet" href="/static/css/admin.css">
+                <script src="/static/js/admin.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 class="center accent">
+            <b>
+                DASHBOARD
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+        <div class="panel-container">
+            <%- include('./components/panelItem.ejs', {title: "TODAS LAS RESERVAS" , link: "/bookings/ALL" ,
+                icon: "fas fa-shopping-cart" }) %>
+                <%- include('./components/panelItem.ejs', {title: "RESERVAS PAGADAS" , link: "/bookingsPaid" ,
+                    icon: "fas fa-coins" }) %>
+                    <%- include('./components/panelItem.ejs', {title: "CARROS" , link: "/allCars" , icon: "fas fa-car"
+                        }) %>
+                        <%- include('./components/panelItem.ejs', {title: "TEMPORADAS" , link: "/seasons" ,
+                            icon: "fas fa-calendar" }) %>
+                            <%- include('./components/panelItem.ejs', {title: "OFICINAS" , link: "/offices" ,
+                                icon: "fas fa-map-marker" }) %>
+                                <%- include('./components/panelItem.ejs', {title: "COUPONS" , link: "/bonos" ,
+                                    icon: "fas fa-percent" }) %>
+                                    <%- include('./components/panelItem.ejs', {title: "BANCOS" , link: "/banks/ALL" ,
+                                        icon: "fas fa-university" }) %>
+                                        <%- include('./components/panelItem.ejs', {title: "TARJETAS" , link: "/cards" ,
+                                            icon: "fas fa-credit-card" }) %>
+                                            <%- include('./components/panelItem.ejs', {title: "LINKS" ,
+                                                link: "/new-link" , icon: "fas fa-link" }) %>
+                                                <%- include('./components/panelItem.ejs', {title: "REEMBOLSOS" ,
+                                                    link: "/devoluciones" , icon: "fas fa-balance-scale" }) %>
+        </div>
+    </div>
+</body>
+
+</html>

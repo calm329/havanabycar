@@ -1,0 +1,35 @@
+<div class="site-locator">
+    <div class="search-btn-mob center">
+        <p id="mobSearchTrigger" class="mobSearchToggle">
+            <i class="fas fa-search"></i>
+            <%= search.action %>
+        </p>
+        <p id="mobSearchCloserBTN" class="mobSearchToggle hidden">
+            <i class="fas fa-window-close"></i>
+            <%= search.close %>
+        </p>
+    </div>
+    
+    <p>
+        <b class="site-map">
+            <a href="/" class="secondary"><%= itemOne %></a> > 
+            <%= itemTwo %> > 
+            <%= itemThree %>
+        </b>
+        <br>
+
+        <% if (hasFilter == true) { %>
+        <span class="filter-btn filter-trigger">
+            <i class="fas fa-filter"></i> <%= contents.sort %>
+        </span>
+        <% } %>
+    </p>
+
+    <% if (Number(finalPrice) > 0) { %>
+        <h1 class="primary right">
+            <% const currencySymbol = req.params.currency == "USD" ? "$" : "€" ;%>
+            <span class="smallTotal">Total:</span> <%= currencySymbol %> <span class="finPrice"><%= finalPrice %></span>
+        </h1>
+    <% } %>
+    
+</div>

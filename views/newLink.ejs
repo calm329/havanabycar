@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Link</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 NUEVA LINK
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Datos Link</h6>
+        
+        <p>
+            <input type="text" id="causale" placeholder="Causale">
+        </p>
+
+        <p>
+            <input type="text" id="monto" placeholder="Monto">
+        </p>
+
+        <p>
+            <select id="divisa">
+                <option value="">Divisa</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="language">
+                <option value="">Idioma</option>
+                <option value="ENG">ENG</option>
+                <option value="ES">ES</option>
+            </select>
+        </p>
+        
+        </form>
+        <p class="center" id="newLinkFeedback" style="word-wrap: break-word;">
+            _
+        </p>
+        
+        <p class="center">
+            <span class="btn center" id="newLinkTrigger"><i class="fas fa-search"></i> CREAR</span>
+        </p>
+    </div>
+        
+</body>
+</html>

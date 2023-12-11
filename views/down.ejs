@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service DOWN</title>
+        <meta name="description" content="<%= contents.description %>">
+        <meta name="keywords" content="<%= contents.keywords %>" />
+        <%- include('./partials/seo.ejs') %>
+            <%- include('./partials/head.ejs') %>
+                <script src="/static/js/bundle.js" type="module"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div style="height: 100vh; display: grid; grid-template-columns: 1fr; align-items: center; text-align: center;">
+            <div style="padding: 20px">
+                <h3 class="accent">
+                    <%= contents.title %>
+                </h3>
+                <p class="">
+                    <%= contents.sorry %>
+                </p>
+                <p class="">
+                    <%= contents.soon %>
+                </p>
+                <p class="">
+                    <b>
+                        <%= contents.contact %>
+                    </b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

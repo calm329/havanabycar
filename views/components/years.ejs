@@ -1,0 +1,8 @@
+<% 
+const year = new Date().getFullYear(); 
+const firstUsefullYear = year - 21;
+const lastUsefullYear = firstUsefullYear - 60;
+for(let i = firstUsefullYear; i > lastUsefullYear; i--) {
+%>
+<div><p value="<%= i %>"><%= i %></p></div>
+<% } %>

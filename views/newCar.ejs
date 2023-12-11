@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/allCars">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 NUEVO CARRO
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Nuevo Carro</h6>
+        
+        <form>
+        <p>
+            <input type="text" id="car_title" placeholder="Marca y Modelo">
+        </p>
+        
+        <p>
+            <input type="text" id="car_type" placeholder="Categoria">
+        </p>
+        
+        <p class="vendors">
+            <span class="vendor-pill">via</span> <span class="vendor-pill">cubacar</span>
+            <span class="vendor-pill">havanautos</span> <span class="vendor-pill">rex</span>
+            <span class="vendor-pill">daiquiri</span>
+        </p>
+
+        <p>
+            <input type="text" id="car_doors" placeholder="Puertas">
+        </p>
+
+        <p>
+            <input type="text" id="car_passengers" placeholder="Pasajeros">
+        </p>
+
+        <p class="vendors">
+            <span class="transmission-pill">manual</span> <span class="transmission-pill">automatic</span>
+        </p>
+
+        <p>
+            <input type="text" id="car_assicurazione" placeholder="Seguro Incluido">
+        </p>
+
+        <p>
+            <input type="text" id="minimo_giorni" placeholder="Dias Minimos">
+        </p>
+
+        <p>
+            <input type="text" id="checkin_offset_days" placeholder="Checkin Offset">
+        </p>
+        </form>
+        <p class="center" id="newCarFeedback">_</p>
+        
+        <p class="center">
+            <span class="btn center" id="newCarTrigger"><i class="fas fa-search"></i> CREAR</span>
+        </p>
+    </div>
+        
+</body>
+</html>

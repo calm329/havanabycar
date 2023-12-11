@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="authbox">
+            <h3 class="center"><b>LOGIN HBC</b></h3>
+            <div class="authform">
+                <div class="center">
+                    <p>
+                        <input type="text" id="username" placeholder="username">
+                    </p>
+                    <p>
+                        <input type="password" id="password" placeholder="password">
+                    </p>
+                    <p id="feedback"></p>
+                    <span class="btn" id="loginTrigger">
+                        LOGIN
+                    </span>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

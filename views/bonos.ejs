@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupons</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                COUPONS
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+    </div>
+
+    <div class="center">
+        <h5>
+            <a href="/new-bono" class="btnLink">
+                Crear Coupon
+            </a>
+        </h5>
+    </div>
+
+    <div>
+        <h5 class="center accent">Coupons: <%= data.bonos.length %></h5>
+    </div>
+
+    <div class="bookings-list">
+        <%for(let i = 0; i < data.bonos.length; i++){%>
+            <%- include('./components/bonoAdmin.ejs', {bono: data.bonos[i]}) %>
+        <%}%>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bancos</title>
+        <meta name="description" content="Login">
+        <%- include('./partials/head.ejs') %>
+            <link rel="stylesheet" href="/static/css/admin.css">
+            <script src="/static/js/admin.js" type="module"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                CUENTAS BANCARIAS
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+    </div>
+
+    <div class="center">
+        <h5>
+            <a href="/new-bank" class="btnLink">
+                Agregar Cuenta
+            </a>
+        </h5>
+    </div>
+
+    <p class="center">
+        <span class="pill">
+            <a href="/banks/ALL" id="all">Global</a>
+        </span>
+        <span class="pill">
+            <a href="/banks/SPAIN" id="spain">España</a>
+        </span>
+        <span class="pill">
+            <a href="/banks/US" id="us">EE.UU.</a>
+        </span>
+    </p>
+
+    <div class="bookings-list">
+        <%for(let i=0; i < banks.length; i++){ %>
+            <%- include('./components/bankAdmin.ejs', {bank: banks[i], isRefund: false, isFor: req.params.type }) %>
+                <%}%>
+                    <br>
+    </div>
+
+</body>
+
+</html>

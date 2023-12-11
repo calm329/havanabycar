@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            <%= contents.title %>
+        </title>
+        <meta name="description" content="<%= contents.description %>">
+        <meta name="keywords" content="<%= contents.keywords %>" />
+        <%- include('./partials/seo.ejs') %>
+            <%- include('./partials/head.ejs') %>
+                <script src="/static/js/bundle.js" type="module"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <%- include('./partials/nav.ejs') %>
+            <%- include('./components/siteLocator.ejs', { itemOne: nav.home, itemTwo: data.lang=="ENG" ? "ABOUT US"
+                : "QUIENES SOMOS" , itemThree: contents.car, hasFilter: false, finalPrice: "" }) %>
+
+                <div class="red-wave-reverse up">
+                    <img src="/static/media/red-wave.svg" alt="">
+                </div>
+
+                <div class="double-col">
+
+                    <%- include('./components/lateralSearch.ejs') %>
+
+                        <div class="results-container">
+
+                            <br>
+                            <h1>
+                                <%= contents.title %>
+                            </h1>
+                            <p><%- contents.best %></p>
+
+                            <% const config=data.config; %>
+
+                                <p class="">
+                                    <img src="/static/media/office_1.png" class="certificate" alt="">
+                                </p>
+
+                                <p class="center">
+                                    <b>
+                                        BOOKING CENTER 24H
+                                        <br>
+                                        WHATSAPP: <%= config.whatsapp %>
+                                            <br>
+                                            <%= config.email.toUpperCase() %>
+                                    </b>
+                                </p>
+
+                                <p>
+                                    <img src="/static/media/office_2.jpg" alt="" class="certificate">
+                                </p>
+
+                                <!--
+
+                                
+                                <div>
+                                    <h3>
+                                        <%= contents.contactTitle %>
+                                    </h3>
+                                    
+                                    <p>
+                                        <%= contents.howContact %>
+                                    </p>
+
+                                    <div class="contacts-triple">
+                                        <% const phone=data.lang=="ENG" ? "Phone" : "Telefono" ; const contacts=[
+                                            {name: "Email" , data: config.email, icon: "fas fa-envelope" , color: "red"
+                                            }, {name: phone, data: config.phone, icon: "fas fa-phone" , color: "orange"
+                                            }, {name: "Whatsapp" , data: config.whatsapp, icon: "fab fa-whatsapp" ,
+                                            color: "green" }, ]; for(let i=0 ; i < contacts.length; i++) { %>
+                                            <%- include("./components/singleContact", {contact: contacts[i]}) %>
+                                                <% } %>
+
+                                    </div>
+
+                                    <h3>
+                                        <%= contents.location %>
+                                    </h3>
+
+                                    <p>
+                                        <%= contents.locationExplainer %>
+                                    </p>
+
+                                </div>
+
+                            -->
+
+                                <div class="two-equal-cols primary" style="align-items: initial">
+                                    <p>
+                                        <b>AMSTERDAM</b><br>
+                                        Herengracht 370<br>
+                                        1016 BX Amsterdam (The Netherlands)
+                                    </p>
+
+                                    <p>
+                                        <b>LA HABANA</b><br>
+                                        Calle 23 y P esq. Infanta<br>
+                                        Plaza de La Revolucion<br>
+                                        Vedado, Habana ( Cuba )
+                                    </p>
+                                </div>
+
+                        </div>
+
+
+
+                </div>
+
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+
+</html>

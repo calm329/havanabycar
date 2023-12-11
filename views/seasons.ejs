@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasons</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                TEMPORADAS BAJAS
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+    </div>
+
+    <div class="center">
+        <h5>
+            <a href="/new-season" class="btnLink">
+                Agregar Temporada
+            </a>
+        </h5>
+    </div>
+
+    <div class="bookings-list">
+        <%for(let i = 0; i < data.seasons.length; i++){%>
+            <%- include('./components/seasonAdmin.ejs', {season: data.seasons[i]}) %>
+        <%}%>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body style="position: relative">
+
+    <div class="container">
+        <%- include('./partials/nav.ejs') %>
+        <%- include('./components/hero.ejs') %>
+        <%- include('./components/road.ejs')%>
+        <%- include('./components/promo.ejs')%>
+        <%- include('./components/prices.ejs')%>
+    </div>
+
+    <div style="background-color: var(--primary); z-index: -1; height: 500px; width: 100%; position: absolute; bottom: 0px; overflow-y: hidden !important;"></div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

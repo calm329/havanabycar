@@ -1,0 +1,33 @@
+<h2 class="accent">
+    <%= contents.method %> Bitcoin
+</h2>
+
+<div class="btcPaysplit">
+    <div>
+
+        <p>
+            <%= contents.send %> <b><span id="sats"><%= data.btc.amount %></span> BTC</b> (<%= data.pricing.btcPay %> <%= data.booking.currency %>) <%= contents.toBTC %>
+        </p>
+        
+        <p class="">
+            <b class="small" id="btcAddress"><%= data.btc.address %></b>
+        </p>
+
+    </div>
+
+    <div class="center">
+        <p class="">
+            <canvas id="qr"></canvas>
+        </p>
+    </div>
+</div>
+
+<div>
+    <p>
+        <% const portal = "/booking/" + data.booking._id; %>
+        <%- contents.next(portal) %>
+    </p>
+</div>
+
+
+

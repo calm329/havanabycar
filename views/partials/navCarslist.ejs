@@ -1,0 +1,13 @@
+<div class="carslist">
+
+    <%  
+        const language = lang == "ES" ? "/flota" : "/ENG/fleet";
+        for (let i = 0; i < cars.length; i++) { 
+    %>
+        <a href="<%= language %>/<%= cars[i].car_slug %>">
+        <div>
+            <%= cars[i].car_title %>    
+        </div>
+        </a>
+    <% } %>
+</div>

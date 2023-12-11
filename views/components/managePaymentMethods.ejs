@@ -1,0 +1,26 @@
+<div>
+    <h5 class="">
+        Modificar Metodo de Pago
+    </h5>
+
+    <%
+        const methods = [
+            {name: "bankPay", label:"Banco"}, 
+            {name: "btcPay", label: "Bitcoin"}, 
+            {name: "zellePay", label: "Zelle"}, 
+            {name: "creditCardPay", label: "Tarjetas"}
+        ];
+
+        
+        for(let i = 0; i < methods.length; i++){ %>
+            <div id="<%= methods[i].name %>" class="singleMethod <%= data.booking.paymentMethod == methods[i].name ? 'selected' : '' %>">
+                <p><%= methods[i].label %></p>
+                <p><%= data.booking.currencySymbol %> <%= data.prices[methods[i].name] %></p>
+                <p>
+                    <span class="btn" onclick="resetPaymentMethod('<%= methods[i].name %>', '<%= req.params.id %>')">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+            </div>
+        <% } %>
+</div>

@@ -1,0 +1,40 @@
+<div class="toBePaid center">
+    
+    <% const crossedClass =  data.finalPrice == data.fullPrice ? "hidden" : "" ;%>
+
+    <h2 id="crossedPrice" class="<%= crossedClass %>">
+        <span class="crossed">Total: <%= data.booking.currencySymbol %> <%= data.fullPrice %></span>
+    </h2>
+
+    <% if(data.booking.paymentMethod == "btcPay") { %>
+    <h3>
+        <%= contents.btcDiscount %> 
+        <%= data.booking.discounts.btcPay %> <%= data.booking.currencySymbol %> 
+    </h3>
+    <% } %>
+
+    <% if(data.booking.paymentMethod == "zellePay") { %>
+        <h3>
+            <%= contents.zelleDiscount %> 
+            <%= data.booking.discounts.zellePay %> <%= data.booking.currencySymbol %>
+        </h3>
+    <% } %>
+
+    <% const bonoClass =  data.booking.discounts.voucherDiscount == 0 ? 'hidden' : '' ;%>
+
+    <h3 class="<%= bonoClass %>" id="voucherOff">
+        <%= contents.voucherDiscount %>
+        <span id="voucherAmount"><%= data.booking.discounts.voucherDiscount %></span> <%= data.booking.currencySymbol %>
+    </h3>
+
+    <h1>
+        <span class="smallTotal"><%= contents.toBePaid %></span> <%= data.booking.currencySymbol %> <span class="finPrice"><%= data.finalPrice %></span>
+        <br>
+        <b><%= contents.methods[data.booking.paymentMethod] %></b>
+    </h1>
+    
+    <div class="btn-container">
+        <span class="btn" id="bookingTrigger"><i class="fas fa-car"></i> <%= search.book %></span>
+    </div>
+    
+</div>

@@ -1,0 +1,89 @@
+<h2 class="accent">
+    <%= contents.method %> <%= contents.cardMethod %>
+</h2>
+
+<div>
+
+    <p>
+        <%= contents.titleCard %>
+    </p>
+
+    <!--
+    //Detailed upload Instructions
+    <p>
+        <%= contents.alsoUpload %>
+    </p>
+    <div class="triple-split-map">
+        <p><img src="/static/media/tyre.png" class="tyre"> <b><%= contents.passportPicture %></b></p>
+        <p><img src="/static/media/tyre.png" class="tyre"> <b><%= contents.cardPicture %></b></p>
+        <p><img src="/static/media/tyre.png" class="tyre"> <b><%= contents.selfiePicture %></b></p>
+    </div>
+    -->
+
+    <p>
+        <img src="/static/media/verified.jpg" alt="" class="verified-pay">
+        <img src="/static/media/PCI.png" alt="" class="pci-pay">
+    </p>
+
+    
+        <div class="bankInstructions">
+
+            <div class="ccPaysplit">
+                <div class="card-field">
+                    <p class="input-box">
+                        <label for="holder"><%= contents.holder %></label>
+                        <i class="fas fa-user" data-field="holder"></i>
+                        <input type="text" id="holder" class="selector" />
+                    </p>
+                </div>
+                <div class="card-field">
+                    <p class="input-box">
+                        <label for="number"><%= contents.number %></label>
+                        <i class="fas fa-credit-card" data-field="number"></i>
+                        <input type="text" id="number" class="selector" />
+                    </p>
+                </div>
+                <div class="card-field">
+                    <p class="input-box">
+                        <label for="expiry"><%= contents.expiry %></label>
+                        <i class="fas fa-calendar" data-field="expiry"></i>
+                        <input type="text" id="expiry" class="selector" readonly="true" />
+                        <div class="select hidden" data-target="expiry" id="expirySelect">
+                            <%- include('./expiry.ejs') %>
+                        </div>
+                    </p>
+                </div>
+                <div class="card-field">
+                    <p class="input-box">
+                        <label for="security">CVV</label>
+                        <i class="fas fa-lock" data-field="security"></i>
+                        <input type="text" id="security" class="selector" />
+                    </p>
+                </div>
+
+            </div>
+
+            <!--
+                <%- include("./uploadCardDocs.ejs") %>
+            -->
+            
+            <div class="ccPaysplit">
+                <div></div>
+                <div>
+                    <h2 class="center ccPrice" >
+                        Total: <span id="amountCC"><%= data.pricing.creditCardPay %></span> <%= data.booking.currencySymbol %>
+                    </h2>
+                    <p>
+                        <% const buttonID = req.url.includes("/paycc/") ? "payccTrigger" : "payTrigger" %>
+                        <span class="btn" id="<%= buttonID %>"><%= contents.action %> <i class="fas fa-credit-card"></i></span>
+                        
+                    </p>
+                    <p class="center">
+                        <img src="/static/media/cards.png" alt="" class="cards-logo">
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+</div>

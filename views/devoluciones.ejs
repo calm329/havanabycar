@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoluciones</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                DEVOLUCIONES
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+    </div>
+
+    <div class="bookings-list">
+        <%for(let i = 0; i < banks.length; i++){%>
+            <%- include('./components/bankAdmin.ejs', {bank: banks[i], isRefund: true, isForSpain: false}) %>
+        <%}%>
+        <br>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,59 @@
+<div class="form-div">
+        
+    <div class="fields">
+        
+        <div>
+            <div style="overflow-y: hidden; position: relative; bottom: 30px">
+                <div class="pointers primaryBG" style="background-color: var(--accent) !important"></div>
+            </div>
+            
+            <h3 class="secondary"><%= search.start %></h3>
+            <p class="input-box">
+                <label for="pickupDate"><%= search.date %></label>
+                <i class="fas fa-calendar" data-field="pickupDate"></i>
+                <input type="text" id="pickupDate" class="picker" readonly="true">
+            </p>
+            <p class="input-box">
+                <label for="pickupCity"><%= search.place %></label>
+                <i class="fas fa-map-marker" data-field="pickupCity"></i>
+                <input type="text" id="pickupCity" class="selector" readonly="true" />
+                <div class="select hidden" data-target="pickupCity" id="pickupSelect">
+                    <%- include('./cities.ejs') %>
+                </div>
+            </p>
+            
+        </div>
+        <div>
+            <div style="overflow-y: hidden; position: relative; bottom: 30px">
+                <div class="pointers accentBG"></div>
+            </div>
+            <h3 class="secondary"><%= search.end %></h3>
+            <p class="input-box">
+                <label for="dropoffDate" ><%= search.date %></label>
+                <i class="fas fa-calendar" data-field="dropoffDate"></i>
+                <input type="text" id="dropoffDate" readonly="true" class="picker">
+            </p>
+            <p class="input-box">
+                <label for="dropoffCity" ><%= search.place %></label>
+                <i class="fas fa-map-marker" data-field="dropoffCity"></i>
+                <input type="text" id="dropoffCity" class="selector" readonly="true" />
+                <div class="select hidden" data-target="dropoffCity" id="dropoffSelect">
+                    <%- include('./cities.ejs') %>
+                </div>
+            </p>
+            
+            <!--
+                <p class="input-box">
+                <label for="pickupDate">Hora</label>
+                <input type="text" id="pickupTime">
+            </p>
+            -->
+            
+        </div>
+        
+    </div>
+    <div>
+        <button id="searchBTN"><%= search.action %> <i class="fas fa-search"></i></button>
+    </div>
+    
+</div>

@@ -1,0 +1,96 @@
+<div class="manage-booking-section">
+    <h5>
+        Honorabilidad
+    </h5>
+
+    <div class="singleMethod honor">
+        <p id="honorability" class="hand">
+            <span class="center"
+                style="display: inline-grid; grid-template-columns: 1fr; align-items: center; border-radius: 50%; width: 20px; height: 20px !important; background-color: black;">
+                <% const classHonor=data.booking.isHonorable==true ? 'active' : '' %>
+                    <i class="fas fa-circle <%= classHonor%>" id="honorabilityCheck"></i>
+            </span>
+        </p>
+        <p>
+
+        </p>
+        <p>
+            <span class="btn" onclick="setHonorability('<%= req.params.id %>')">
+                <i class="fas fa-check"></i>
+            </span>
+        </p>
+    </div>
+
+    <%- include('../partials/divider.ejs') %>
+
+        <h5>
+            Voucher PDF
+        </h5>
+
+        <% if(data.booking.hasFinalVoucher !=true) { %>
+            <div class="pdf-upload-grid">
+                <div>
+                    <form class="center">
+                        <input type="file" id="pdf" class="hidden">
+                        <label for="pdf" class="pdfUploader">CARGAR PDF</label>
+                    </form>
+                </div>
+                <div>
+                    <span id="createAutoPDF" class="pdfUploader">CREAR PDF</label>
+                </div>
+            </div>
+
+            <p id="pdfFeedback" class="center">_</p>
+
+            <% } else { %>
+                <div class="singleMethod">
+                    <p class="center">
+                        <a href="/static/pdf/<%= data.booking._id %>/booking-HAVANABYCAR.pdf" target="_blank">
+                            <b>Ver PDF</b>
+                        </a>
+                    </p>
+                    <p></p>
+                    <p class="center">
+                        <span class="btn" onclick="deletePdf('<%= req.params.id %>')">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <% } %>
+
+                    <%- include('../partials/divider.ejs') %>
+
+                        <h5>
+                            Acciones
+                        </h5>
+
+                        <p class="center" id="confirmationFeedback">_</p>
+
+                        <div class="split">
+                            <div class="center">
+                                <span style="background-color: var(--primary);" onclick="window.history.back()">
+                                    <i class="fas fa-arrow-circle-left"></i> Atras
+                                </span>
+                            </div>
+                            <div class="center">
+                                <span id="confirmationTrigger" style="background-color: green;">
+                                    <i class="fas fa-check"></i> Confirmar
+                                </span>
+                            </div>
+
+                            <div class="center">
+                                <% if(data.booking.state=="REFUNDING" ) { %>
+                                    <span id="refundedTrigger" style="background-color: green;">
+                                        <i class="fas fa-coins"></i> Reembolsado
+                                    </span>
+                                    <% } else { %>
+                                        <a href="/cancelBooking/<%= data.booking._id%>">
+                                            <span style="background-color: var(--accent);">
+                                                <i class="fas fa-trash"></i> Cancelar
+                                            </span>
+                                        </a>
+                                        <% } %>
+                            </div>
+                        </div>
+</div>

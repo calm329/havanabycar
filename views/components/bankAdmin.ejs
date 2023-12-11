@@ -1,0 +1,55 @@
+<% const classBank=( bank.isSelected==true && isFor=="ALL" ) || ( bank.isSelectedForSpain==true && isFor=="SPAIN" ) || (
+    bank.isSelectedForUs==true && isFor=="US" ) ? "bank-account-selected" : "" ; %>
+
+    <div class="single-booking <%= classBank %>" id="<%= bank._id %>">
+        <div>
+            <h3><b class="">
+                    <%= bank.bank %>
+                </b></h3>
+            <p><b class="accent">Beneficiario:</b>
+                <%= bank.beneficiary ? bank.beneficiary : "ADV TRAVEL SERVICE LLC" %>
+            </p>
+            <p>
+                <b class="accent">
+                    <% if (isRefund==true && bank.isWrong && bank.isWrong==true) { %>
+                        <i class="fas fa-window-close"></i>
+                        <% } %> IBAN:
+                </b>
+                <%= bank.iban %>
+            </p>
+            <p><b class="accent">BIC:</b>
+                <%= bank.bic %>
+            </p>
+            <% if(isRefund !=true) { %>
+                <p><b class="accent">Route:</b>
+                    <%= bank.routing !="" ? bank.routing : "N/A" ; %>
+                </p>
+                <% } %>
+                    <p><b class="accent">Dirección:</b><br>
+                        <%= bank.address %>
+                    </p>
+                    <% if(isRefund==true) { %>
+                        <p><b class="accent">Amount:</b>
+                            <%= bank.amount %>
+                        </p>
+                        <% } %>
+        </div>
+
+        <div class="center" style="padding: 20px 10px">
+            <% if(isRefund==true) { %>
+                <h3><b class="">BOOKING:</b> <a href="/booking/<%= bank.bookingId %>">
+                        <%= bank.causale %>
+                    </a></h3>
+                <% } else { %>
+                    <div class="right">
+                        <span class="bank-selected">
+                            <i class="fas fa-check"></i> Seleccionado
+                        </span>
+                        <span class="select-bank" onclick="setBank('<%= bank._id %>')">
+                            SELECCIONAR
+                        </span>
+                    </div>
+                    <% } %>
+        </div>
+
+    </div>

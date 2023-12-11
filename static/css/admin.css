@@ -1,0 +1,581 @@
+.container {
+    width:100%;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden !important;
+}
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+h6 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 22px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.logout-btn {
+    display: inline-block;
+    background-color: var(--slighAccent);
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+select {
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+select:focus{
+    outline: none;
+    border: 2px solid var(--primary);
+}
+
+.btnLink {
+    display: inline-block;
+    padding: 5px 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 5px;
+}
+
+.authbox {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    border: 4px solid var(--accent);
+    padding: 20px 0px;
+    margin: 160px auto;
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.authform {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+#feedback {
+    height: 50px;
+}
+#loginTrigger,
+#changeCategory,
+#changePrice,
+#searchTrigger,
+#newCarTrigger,
+#changeFeatures,
+#newSeasonTrigger,
+#newOfficeTrigger,
+#newLinkTrigger,
+#cancelTrigger,
+#newBonoTrigger,
+#pdfTrigger,
+#newBankTrigger,
+#newRefundTrigger,
+.select-bank {
+    display: block;
+    width: 90%;
+    background-color: var(--accent);
+    margin: 20px auto;
+    color: var(--secondary);
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#changePrice{
+    font-size: 18px;
+}
+
+#searchTrigger{
+    width: 50%;
+    margin: 20px;
+    display: inline-block;
+}
+
+#loginTrigger:hover,
+#changeCategory:hover,
+#changePrice:hover,
+#searchTrigger:hover,
+#newCarTrigger:hover,
+#changeFeatures:hover,
+#newSeasonTrigger:hover,
+#newOfficeTrigger:hover,
+#newLinkTrigger:hover,
+#cancelTrigger:hover,
+#newBonoTrigger:hover,
+#pdfTrigger:hover,
+#newBankTrigger:hover,
+#newRefundTrigger:hover,
+.select-bank:hover {
+    background-color: var(--slighAccent);
+}
+
+.panel-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80vh;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.panel-container div{
+    padding: 20px 0px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.panel-container div h1{
+    height: 100px;
+}
+
+.pill {
+    background-color: var(--primary);
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 10px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.pill a {
+    color: white;
+}
+
+.bookings-list {
+    width: 90%;
+    margin: auto;
+}
+
+.single-booking,
+.search-box {
+    width: 90%;
+    max-width: 500px;
+    background-color: whitesmoke;
+    border: 4px solid var(--primary);
+    margin: 0px auto;
+    margin-top: 20px;
+    padding: 20px 0x;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+.single-booking .bookingPriceAdmin{
+    color: var(--secondary); 
+    padding: 7px; 
+    padding-right: 10px; 
+    background-color: var(--accent); 
+    border-bottom-left-radius: 50px
+}
+
+.state {
+    padding: 3px; 
+    border-radius: 3px;
+}
+
+.state.PAGADO,
+.state.REFUNDED {
+    background-color: green;
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.state.CANCELADO,
+.state.RECHAZADO {
+    background-color: var(--accent);
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.state.REFUNDING {
+    background-color: orange;
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.single-booking .details-btn {
+    font-weight: bold;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 50%;
+    margin: auto;
+    display: inline-block;
+}
+
+.search-box {
+    padding: 10px;
+}
+
+.single-booking:hover,
+.singleCarAdmin:hover {
+    box-shadow: 0px 0px 5px var(--primary);
+}
+
+.singleCarAdmin{
+    background-color: whitesmoke;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    border: 4px solid var(--primary);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.singleCarAdmin .split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.car-edit-form {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px 0px;
+}
+
+.car-edit-form p {
+    width: 90%;
+    margin: auto;
+}
+
+.car-edit-form p.pics {
+    border-bottom: 4px solid var(--primary);
+    padding: 20px 0px;
+}
+
+.car-edit-form p.pics span.selected{
+    display: none;
+}
+
+.car-edit-form p.pics span.not-selected{
+    display: block;
+}
+
+.car-edit-form p.pics.selected span.not-selected{
+    display: none;
+}
+
+.car-edit-form p.pics.selected span.selected{
+    display: block;
+}
+
+.car-edit-form img {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.prices-form span {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.vendors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.transmissions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.vendor-pill,
+.transmission-pill,
+.reason-pill {
+    display: block;
+    margin: 5px 20px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+}
+
+.reason-pill{
+    margin-bottom: 20px;
+}
+
+.vendor-pill.active,
+.transmission-pill.active,
+.reason-pill.active{
+    border: 2px solid var(--accent);
+}
+
+/*BOOKING DETAILS*/
+.admin-booking-details {
+    padding: 10px 5%;
+}
+
+.summary-admin .singleMethod {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    border: 1px solid var(--primary);
+    width: 92%;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px 0px;
+}
+
+.summary-admin .singleMethod .btn{
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: var(--accent);
+    color: var(--secondary);
+    border-radius: 5px;
+}
+
+.summary-admin .singleMethod .btn:hover{
+    background-color: var(--slighAccent);
+}
+
+
+.summary-admin .singleMethod:hover {
+    box-shadow: 0px 0px 5px var(--primary);
+}
+
+.summary-admin .singleMethod.selected {
+    border: 3px solid var(--accent);
+}
+
+.summary-admin #honorability:after {
+    content: "Honorable";
+    position: relative; 
+    left: 5px;
+    top: 3px;
+}
+
+.voucherLine {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+.voucherDownload {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--accent);
+    color: var(--secondary);
+    font-weight: bold;
+    width: 250px !important;
+    padding: 10px 0px;
+    border-radius: 5px;
+    
+}
+
+.voucherDownload:hover {
+    background-color: var(--slighAccent);
+}
+
+.manage-booking-section .split {
+    text-align: center;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 20px; 
+    align-items: center; 
+    padding: 20px 0px;
+}
+
+.pdfUploader,
+.evidenceUploader{
+    position: initial;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--secondary);
+    background-color: var(--primary);
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#createAutoPDF{
+    display: inline-block;
+    min-width: 120px;
+}
+
+.evidenceUploader{
+    display: inline-block;
+    text-align: center;
+    background-color: var(--accent);
+}
+
+.pdfUploader:hover{
+    box-shadow: 0px 0px 5px var(--primary);
+}
+
+.evidenceUploader:hover{
+    background-color: var(--slighAccent);
+}
+
+.pay-upload-grid,
+.pdf-upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    align-items: center;
+}
+
+.evidenceFeedback {
+    display: inline-block; 
+    width: 100%; 
+    max-width: 300px;
+    color: var(--accent);
+    font-weight: bold;
+    min-height: 40px;
+    padding-top: 20px !important;
+}
+
+.manage-booking-section .split span {
+    padding: 5px 0px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--secondary);
+}
+
+.summary-payment-method {
+    font-size: 16px; 
+    color: var(--secondary);
+    background-color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 5px;
+    
+}
+
+/*BANK*/
+.bank-account-selected .select-bank {
+    display: none !important;
+}
+
+.select-bank {
+    display: inline;
+    border-radius: 10px;
+}
+
+.bank-selected{
+    font-weight: bold; 
+    color: green;
+    display: none;
+}
+
+.bank-account-selected .bank-selected{
+    display: block !important;
+}
+
+.card-used-check {
+    position: absolute; 
+    top: -10px; 
+    right: 10px; 
+    padding: 10px; 
+    background-color: green; 
+    color: var(--secondary); 
+    border-radius: 50%; 
+    width: 25px; 
+    height: 25px; 
+    text-align: center
+}
+
+@media screen and (max-width: 800px) {
+    .panel-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .pay-upload-grid{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .panel-container {
+        grid-template-columns: 1fr;
+    }
+
+    .out{
+        display: none;
+    }
+
+    .singleCarAdmin{
+        display: block;
+    }
+
+    .vendors {
+        display: block;
+    }
+
+    .vendor-pill {
+        margin-bottom: 20px;
+    }
+
+    .manage-booking-section .split {
+        display: block; 
+    }
+
+    .voucherLine {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .voucherDownload {
+        display: inline-block;
+        margin-top: 30px !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .pdf-upload-grid {
+        display: block;
+    }
+
+    .pdf-upload-grid div{
+        margin-top: 30px;
+    }
+}

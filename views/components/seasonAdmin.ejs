@@ -1,0 +1,14 @@
+<div class="singleCarAdmin" id="<%= season._id %>">
+    <div>
+        <p ><b class="accent">INICIO:</b> <%= season.start%></p>
+        <p ><b class="accent">FIN:</b> <%= season.finish%></p>
+        <p><b>Valido Para Todos Los Carros</b></p>
+    </div>
+    <div class="center">
+        
+        <div class="center">
+            <i class="fas fa-trash hand accent" onclick="deleteRecord('<%= season._id %>', '/delete-season')"></i>
+        </div>
+        
+    </div>
+</div>

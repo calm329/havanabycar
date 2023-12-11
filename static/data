@@ -1,0 +1,476 @@
+const text = {
+    ES: {
+        //Home
+        home: {
+
+            title: 'Conducir un carro alquilado en Cuba con Drive2Cuba',
+            description: "Descubre los tesoros de Cuba en un viaje en carro con Cuba Rentar Carro. Explora La Habana, Varadero, Trinidad, Baracoa, Santiago de Cuba, Holguín, Guardalavaca y Las Tunas.",
+            keywords: "Cuba rentar carro, alquiler de carros en Cuba, road trip Cuba, turismo Cuba",
+            start: "RECOGIDA",
+            end: "ENTREGA",
+            hero: "CARROS DE RENTA EN CUBA",
+            search: "BUSCAR CARRO",
+            hint: "Donde Quiere Recoger el Coche?",
+            date: "Fecha",
+            place: "Lugar",
+            promo: "PROMO",
+            offers: "OFERTAS",
+            perDay: "DESDE",
+            insuranceIncluded: "SEGURO INCLUIDO",
+            manualCheap: "Manual<br>Economico",
+            automaticoCheap: "Automatico<br>Economico",
+            amigo: "Promo Amigo",
+            forYou: "para ti",
+            forHim: "para el",
+            pic: "Fotografa el Carro",
+            nextTime: "Ahorras 100$ la proxima vez",
+            upload: "Sube la foto",
+            btc: "Paga en Bitcoin",
+            save10: "Ahorras el 10%",
+            fast: "Confirmacion Rapida",
+            catalogo: {
+                title: "Alquiler de coches economicos o de lujo",
+                explainer: "Nuestra extensa red de agencias de alquiler de coches en Cuba pone a disposicion de nuestros cliente coches de gama alta, baja y intermedia. Tenemos cochos para todos los bolsillos.",
+                economy: "ECONOMICO",
+                medium: "MEDIO",
+                luxory: "LUJO",
+                from: "Desde"
+            },
+        },
+
+        faq: {
+            mainTitle: "Alquiler Cuba Coches [ FAQs ] - cubacarbooking",
+            description: "¿Alguna pregunta relacionada con el alquiler Cuba coches? Esta página de preguntas frecuentes resolverá todos sus problemas relacionados con los precios, etc.",
+            title: "F.A.Q.",
+            subtitle: "Preguntas frecuentes sobre alquiler de coche en Cuba",
+            questions: [
+                {
+                    q: "¿Cómo busquar un coche para alquilar en Cuba?",
+                    a: "Debes prestar atención a varios elementos: el precio por día, el número de plazas de ese auto, el tipo de caja de cambio si el coche de alquiler ec Cuba lo prefieres MANUAL o AUTOMATICO.<br><br> Durante todo el proceso de reserva, CubaCarBooking te mostrará los servicios incluidos y los que no, para que puedas tomar la decisión con toda la información a tu disposición."
+                },
+                {
+                    q: "¿Qué sucede si recojo mi coche con retraso?",
+                    a: "CubaCarBooking acepta un retraso de 30 minutos durante las horas de la agencia de alquiler de coche en Cuba. En caso de producirse un retraso mayor, el coche no estará garantizado, ya que la empresa puede decidir entregar ese coche a otro cliente. Por lo tanto, te recomiendo que nos notifiques si llegarás más tarde de la hora programada."
+                },
+                {
+                    q: "¿Qué sucede si me demoro en la entrega del coche alquilado?",
+                    a: "Si entregas el coche alquilado después del minuto 59 de la hora programada te cobrarán cada hora extra (de 1 a 5) con 1/5 de la tarifa pública (3/6 días). Mientras, si entregas el coche con un retraso de más de 6 horas te cobrarán un día extra, más un día de seguro."
+                },
+                {
+                    q: "¿Cómo puedo pagar el alquiler del coche en Cuba?",
+                    a: "Una vez hayas seleccionado el coche de tu preferencia, confirma la reserva y recibiras un correo con todas las informaciones de pago para el alquiler de tu coche en Cuba. Aceptamos transferencia bancaria, tarjeta de credito y BIZUM."
+                },
+                {
+                    q: "¿Qué incluye el precio?",
+                    a: "El precio por alquilar un coche en Cuba se obtiene al multiplicar el precio establecido por 24 horas por la cantidad de días contratados. El kilometraje es ilimitado; aunque el combustible sí corre por completo a tu cuenta.<br><br> El precio no incluye elementos que puedan tener un costo adicional: seguro del auto, depósito de seguridad, contratación de un chófer profesional, la entrega del coche en un lugar diferente al de la recogida, el combustible"
+                },
+                {
+                    q: "¿Qué incluye el seguro?",
+                    a: "El seguro cubre daños al auto, incendio, robo total o parcial, accidentes, desastres naturales, daños a bienes ajenos y lesiones a terceros. Es obligatorio informar inmediatamente a las autoridades competentes. El seguro no cubre el robo del reproductor musical del auto, los 5 neumáticos (4, más el de repuesto) ni el limpiaparabrisas. Por todo esto es muy recomendable que siempre estaciones el auto en un lugar seguro."
+                },
+                {
+                    q: "¿Qué sucede cuando me confirman el coche?",
+                    a: "CubaCarBooking te envía un correo electrónico con la reserva final y el voucher con todos los datos del alquiler del coche en Cuba."
+                },
+                {
+                    q: "¿Y si no me confirman el coche, qué sucede con mi dinero?",
+                    a: "Solamente te cobramos cuando tenemos la seguridad de la confirma de tu coche de alquiler en Cuba."
+                },
+                {
+                    q: "¿Puedo utilizar GPS en Cuba?",
+                    a: "Aunque la conexión a Internet en Cuba ha mejorado, de todas formas te recomiendo que descargues, gratuitamente, la aplicación Maps Me y ahí el mapa de toda Cuba. De esta forma no te perderás, no te estresarás más de la cuenta si fallara la conexión."
+                },
+                {
+                    q: "¿Necesito un permiso de conducir internacional para alquilar un coche en Cuba?",
+                    a: "En Cuba se aceptan permisos de conducir tanto internacionales como nacionales, siempre y cuando estén en su formato original (no se aceptan fotocopias"
+                },
+                {
+                    q: "¿Es obligatorio tener un seguro para alquilar un coche en Cuba?",
+                    a: "Si, es obligatorio"
+                },
+                {
+                    q: "¿Puedo solicitar un asiento infantil?",
+                    a: "Sí, aunque tendrás que pagar una cuota adicional. No obstante, es posible que la empresa no tenga uno disponible en el momento en que lo solicitas, por lo que si lo necesitaras es mejor traer uno de casa."
+                },
+                {
+                    q: "¿Qué documentos debo presentar a la oficina de alquiler de coche en Cuba?",
+                    a: "Para alquilar un coche en Cuba tienes que presentar los siguientes documentos:<br><br><ul class='browser-default'><li>Licencia de conducir vigente</li><li>Pasaporte</li><li>Tarjeta de crédito o débito Visa o Mastercard a nombre del conductor principal (no se acepta efectivo)</li><li>Voucher de la reserva inprimido</li></ul>"
+                },
+                {
+                    q: "¿Qué debo hacer en caso de accidente?",
+                    a: "En caso de accidente, daño o robo del auto, te recomiendo ponerte en contacto con la oficina de alquiler en un plazo de 48 horas utilizando los números de emergencia que encontrarás en el voucher que recibiste por correo electrónico. En caso de notificación tardía del incidente, serás responsable del costo de reparación del vehículo"
+                },
+                {
+                    q: "¿Qué debo hacer si cometo una infracción de tráfico y recibo una multa?",
+                    a: "Si recibes una multa, la policía registrará el incidente en el contrato de alquiler y tendrás que pagar el coste al devolver el coche."
+                },
+
+            ]
+        },
+        //CAR
+        car: {
+            mainTitle: "Detalles del Coche - Servicio De Coches Alquiler En Cuba - cubacarbooking",
+            description: "Todo lo que se necesita saber sobre el cpche de alquiler en Cuba. Seguro, kilometraje, cancelaciones, disponibilidad, terminos y condiciones",
+            title: "Alquiler de Auto", 
+            where: "Recogida", 
+            days: "Dias", 
+            start: "Inicio", 
+            finish: "Fin", 
+            action: "RESERVA"
+        },
+        //About
+        about: {
+            mainTitle: "Renta A Car Cuba [Sobre Nosotros] - cubacarbooking",
+            description: "CubaCarBooking es la mejor empresa renta a car Cuba que ofrece soluciones integrales de viaje en 600 puntos. ¡Encuentra más información sobre nosotros aquí!",
+            title: "SOBRE NOS OTROS",
+            pOne: "<b>CUBACARBOOKING</b> es una marca comercial que pertenece a <b>EASY TRAVEL SL</b> con domicilio fiscal en Calle Raimundo Fernandez Villaverde n.51, Madrid <b>NIF A28462778</b>.",
+            pTwo: "<b>CUBACARBOOKING</b> también cuenta con oficina de asistencia en La Habana activa las 24h para cualquier emergencia",
+            pThreeOne: "<b>CUBACARBOOKING</b> se especializa en el alquiler de autos en cuba a través de su sitio web",
+            pThreeTwo: ".",
+            pFour: "<b>CUBACARBOOKING</b> pone a disposición del cliente un rápido y eficaz sistema de reservas online de autos en Cuba, y combina la asistencia de los operadores vía telefónica, whatsapp y email con el objetivo de garantizar la mejor experiencia de compra posible en lo que se refiere al mercado de alquiler de auto en Cuba"
+        },
+        //Success
+        success: {
+            mainTitle: "Booking Completado",
+            title: 'Reserva realizada!',
+            description: '<b>¡Hemos recibido tu reserva!</b><br> Serás contactado para proceder con el pago.'
+        },
+        reactivate: {
+            mainTitle: "Booking Extendido",
+            title: 'Booking Extendido',
+            description: '<b>Vas a tener 48h extra para completar el pago.'
+        },
+        //Pay
+        pay: {
+            mainTitle: "Seleccionar Metodo de Pago",
+            car: "Coche",
+            driver: "Conductor",
+            pickUp: "Entrega",
+            dropOff: "Devolucion",
+            passport: "Pasaporte",
+            dates: "Fechas de la Renta",
+            cost: "Costo Renta del Coche",
+            confirm: "Confirma Reserva",
+            code: "Inserte Codigo de Rebaja",
+            extra: "Costo Dia Extra",
+            extraAirport: "<b>Recogida en Aeropuerto</b>: <span>25 <i class='fas fa-euro-sign'></i></span>",
+            extraPetrol: "<b>Primer Tanque de Combustible</b>: <span>60 <i class='fas fa-euro-sign'></i></span>"
+        },
+
+        how: {
+            mainTitle: "Como Funciona",
+            title: "Como Funciona",
+            content: `<p>Somos una Agencia de Viajes mayorista de Alquiler de Coches en Cuba.</p>
+
+<p>En nuestra página web puede verificar la disponibilidad de nuestros coches y los precios.</p>
+
+<p>Todos los precios son con SEGURO INCLUIDO.</p>
+
+<p>Al precio del alquiler y del seguro se le agregan 60 EUR por el primer tanque de gasolina (luego puedes devolver el coche vacio) y 25 EUR de tasa aeroportuaria si recoges el coche en un aeropuerto.</p>
+
+<p>Los costos a pagar en Cuba son los siguientes:</p>
+<ul>
+  <li>30 USD si quiere un chofer adicional</li>
+  <li>35 USD si entrega el coche en un lugar diferente de donde fue recogido</li>
+</ul>
+
+<p>Puede hacer una reserva para el coche de su elección sin compromiso y bloquearemos el coche durante 48 horas.</p>
+
+<p>Recibirá un correo con la confirmación de la reserva y los datos para realizar el pago.</p>
+
+<p>Tiene 48 horas para realizar el pago.</p>
+
+<p>Si no quiere confirmar la reserva porque necesita más tiempo para decidir o aún tiene que organizar su viaje, no tiene que hacer nada, la reserva se cancelará automáticamente.</p>
+
+<p>Si quiere confirmar la reserva, siga las instrucciones y una vez registrado su pago ¡podrá recibir el VOUCHER!</p>
+
+<p>El VOUCHER es el documento necesario para recoger el coche en Cuba.</p>
+
+<p>Junto con el VOUCHER deberá presentar su pasaporte y su licencia de condución nacional.</p>`
+        
+        },
+
+        nav: {
+            home: "INICIO",
+            about: "QUIENES SOMOS",
+            how: "COMO FUNCIONA",
+            cars: "CARROS",
+            offers: "OFERTAS",
+            howLink: "/como-funciona",
+            homeLink: "/",
+            aboutLink: "/quienes-somos",
+            //how: "https://cubacarbooking.com/faq",
+            //blogLink: "https://cubacarbooking.com/blog"
+        },
+        
+        footer: {
+            join: 'Unase para:',
+            news: 'Ultimas Noticias de Cuba',
+            specialDeals: 'Ofertas Especiales',
+            about: "Quienes Somos",
+            tc: "Terminos y Condiciones",
+            privacy: "Privacidad y Cookies",
+            usefull: "Informacion Útil",
+            support: "Soporte",
+            contact: "Contactenos",
+            howto: "Como Reservar",
+            map: "Mapa del sitio",
+            social: "Redes"
+        },
+        map: {
+            title: "Mapa del sitio de Rent A Car Cuba - cubacarbooking",
+            description: "Este mapa del sitio de rent a car Cuba le ayudará a navegar por nuestro sitio de manera efectiva. ¡Consulta la breve estructura de CubaCarBooking desde aquí!",
+            superTitle: "Mapa del Sitio",
+            mapOneTitle: "CORPORATE",
+            mapTwoTitle: "BLOG",
+            mapThreeTitle: "SOPORTE",
+            about: "Quienes Somos",
+            tc: "Terminos y Condiciones",
+            privacy: "Privacidad y Cookies",
+            usefull: "Informacion Util",
+            aboutL: "/quienes-somos",
+            tcL: "/terminos-y-condiciones",
+            privacyL: "/politica-de-privacidad",
+            usefullL: "/informacion-util",
+            blogOne: "Bienvenido al Blog de cubacarbooking",
+            blogOneL: "/blog/bienvenido_blog_cubacarbooking"
+        },
+        blog: {
+            mainTitle: "Coche Cuba Alquiler Blogs Y Actualizaciones - cubacarbooking",
+            description: "En esta sección del blog, encontrará las últimas actualizaciones, consejos y asistencia con respecto al servicio coche Cuba alquiler. ¡Échale un vistazo ahora!",
+            descriptionSEO: "Algunos consejos prácticos para alquilar un coche en Cuba",
+            readMore: "Leer Mas",
+        },
+        welcomeBlog: {
+            mainTitle: "Mejor Empresa De Alquiler De Coche En Cuba - cubacarbooking",
+            description: "¿Busca información sobre alquiler de autos en Cuba? ¡Lee nuestros últimos artículos relacionados con los servicios de alquiler de coches y sus características!",
+            title: "Bienvenido al Blog de cubacarbooking.",
+            subtitle: "el mejor sitio de alquiler de coches en Cuba."
+        }
+    },
+    ENG: {
+
+        //Home
+        home: {
+            title: 'Travel through Cuba with Cuba Car Rental',
+            keywords: "Cuba car rental, car rental in Cuba, Cuba road trip",
+            description: "Rent a car in Cuba and explore the island's top destinations, including Havana, Viñales, Trinidad, and Varadero. Discover the best of Cuba with Cuba Car Rental.",
+            start: "PICKUP",
+            end: "DROPOFF",
+            hero: "CAR RENTA IN CUBA",
+            search: "FIND CAR",
+            hint: "Donde Quiere Recoger el Coche?",
+            date: "Date",
+            place: "Place",
+            promo: "PROMO",
+            offers: "BARGAINS",
+            perDay: "FROM",
+            insuranceIncluded: "INSURANCE INCLUDED",
+            manualCheap: "Manual<br>Economy",
+            automaticoCheap: "Automatic<br>Economy",
+            amigo: "Friends Promo",
+            forYou: "for you",
+            forHim: "for him",
+            pic: "Take a Picture",
+            nextTime: "Save 100$ Next Time",
+            upload: "Upload Your Car",
+            btc: "Pay in Bitcoin",
+            save10: "Save 10%",
+            fast: "Fast Confirmation",
+
+            catalogo: {
+                title: "Economy and Luxory Car Rental",
+                explainer: "Our extended network of Car Rental Agencies in Cuba puts at out customers' disposal a wide range of cars to suit any pocket.",
+                economy: "ECONOMY",
+                medium: "MEDIUM",
+                luxory: "LUXORY",
+                from: "From"
+            },
+
+        },
+        //CAR
+        car: {
+            mainTitle: "Alquiler de Coche",
+            title: "Alquiler de Coche",
+            where: "Pick-Up", 
+            days: "Days", 
+            start: "Starts", 
+            finish: "Ends", 
+            action: "BOOK"
+        },
+        //About
+        about: {
+            mainTitle: "About Us || cubacarbooking",
+            title: "About Us",
+            pOne: "<b>CubaCarBooking</b> is brand that blongs to SUPERGARAGE SL, a company incorporated in Calle Raimundo Fernandez Villaverde n.51, Madrid NIF A28462778. The executive office is in Alicante",
+            pTwo: "<b>CubaCarBooking</b> also has a customer support office in La Habana. It is active 24/7 for any emergency that could arise.",
+            pThreeOne: "<b>CubaCarBooking</b> focuses on renting cars in Cuba through its website ",
+            pThreeTwo: "where customers can book cars in real time  at the best rates available in the market.",
+            pFour: "<b>CubaCarBooking</b> offers its customers a fast and effective booking service. In order to deliver the best customer service in the Cuban Car Rental market, we make it easy for our customers to reach out to us by Email, Phone and Whatsapp."
+        },
+        faq: {
+            mainTitle: "Frequently Asked Questions on Car Rental in Cuba",
+            title: "Frequently Asked Questions on Car Rental in Cuba",
+            questions: [
+                {
+                    q: "How Do I find a car to rent in Cuba?",
+                    a: "You must pay attention to several elements: price per day, passengers capacity, type of transmission (AUTOMATIC VS MANUAL).<br><br> Along the booking process, CubaCarBooking will show you what's included and what's not included, so that you can make a well informed decision."
+                },
+                {
+                    q: "What if I pick up my car with some delay?",
+                    a: "CubaCarBooking a 30 minutes delay. In case the delay is greater, the car cannot be guaranted, for the agency may decide to give the car to someone else. So, you are strongly adviced to let us know if you think you'll be late."
+                },
+                {
+                    q: "What if drop off the car with some delay?",
+                    a: "If you arrive at the agency after the minute 59 of the established hour, the agency will charge you depending on the magnitude of the delay. From 1h to 5h the charge  is 1/5 of the public tarif (3/6 days). If the delay is larger than 6 hours a full day will be charged",
+                },
+                {
+                    q: "How can I pay for the car?",
+                    a: "We accept bank transfers only."
+                },
+                {
+                    q: "What's included in the price?",
+                    a: "Unlimited kilometres<br><br>You shall pay for parking fees, professional chofeur (if required), fuel, insurance, drop off in a different location."
+                },
+                {
+                    q: "What's included in the insurance?",
+                    a: "The insurance includes theft, fire, accidents with damahes to things and people. In case of accident, please contact the agency immediately."
+                },
+                {
+                    q: "What happens when the car is confirmed?",
+                    a: "CubaCarBooking will send you an email with all the details of the reservation and a voucher"
+                },
+                {
+                    q: "What if the car is not confirmed?",
+                    a: "We only charge you when we are 100% sure that your car is available."
+                },
+                {
+                    q: "Can I use GPS in Cuba?",
+                    a: "Internet connection in Cuba is improving. However, in country road the signal may be weak or totally lacking."
+                },
+                {
+                    q: "Do I need a special driving permit to drive in Cuba?",
+                    a: "As long as you show up with your driving licence, you are going to be fine. No Copies accepted. Only the original."
+                },
+                {
+                    q: "Do I need an insurance?",
+                    a: "Yes, you do."
+                },
+                {
+                    q: "Can I have a seat for my child?",
+                    a: "Yes, but this comes at an extra cost."
+                },
+                {
+                    q: "Which documents do I need to present at the agency when I pick up my car?",
+                    a: "You need to show the following:<br><br><ul class='browser-default'><li>Driving License</li><li>Passport</li><li>A Credit/Debit Car (Visa or Mastercard)</li><li>Printed copy of the Voucher</li></ul>"
+                },
+                
+                {
+                    q: "What if I get fined?",
+                    a: "If you get a fine, you will need to pay it when you return the car"
+                },
+
+            ]
+        },
+        //Success
+        success: {
+            mainTitle: "Booking Completed",
+            title: 'Booking done!',
+            description: '<b>We have received your booking!</b><br> You will be contacted to proceed with the payment.'
+        },
+        reactivate: {
+            mainTitle: "Booking Extended",
+            title: 'Booking Extended!',
+            description: '<b>You have 48 extra hours to finalize your booking.</b>'
+        },
+
+        //Pay
+        pay: {
+            mainTitle: "Select Payment Method",
+            car: "Car",
+            driver: "Driver",
+            passport: "Passport",
+            pickUp: "Pick-Up",
+            dropOff: "Drop-Off",
+            dates: "Rental Dates",
+            cost: "Rental Cost",
+            confirm: "Confirm Booking",
+            code: "Insert Discount Code",
+            extra: "Extra Day Premium",
+            extraAirport: "<b>Airport Pickup</b>: <span>25 <i class='fas fa-euro-sign'></i></span>",
+            extraPetrol: "<b>First Tank of Fuel</b>: <span>60 <i class='fas fa-euro-sign'></i></span>"
+        },
+        how: {
+            mainTitle: "How it Works",
+            title: "How it Works",
+            content: `<p>We are a wholesale travel agency for car rental in Cuba.</p>
+            
+            <p>On our website you can check the availability of our cars and prices.</p>
+            
+            <p>All prices include INSURANCE.</p>
+
+            <p>To the price of the car rental (which includes insurance) must be added 60 EUR for the first tank of fuel (you can return the car with empty tank) and 25 EUR for airport taxes if you pickup your car at a Cuban airport.</p>
+            
+            <p>The costs to be paid in Cuba are as follows:</p>
+            <ul>
+              <li>30 USD if you want an additional driver</li>
+              <li>35 USD if you drop off the car at a different location from where it was picked up</li>
+            </ul>
+            
+            <p>You can make a reservation for the car of your choice without commitment and we will block the car for 48 hours.</p>
+            
+            <p>You will receive an email with the reservation confirmation and payment details.</p>
+            
+            <p>You have 48 hours to make the payment.</p>
+            
+            <p>If you do not wish to confirm the reservation because you need more time to decide or still need to organize your trip, you do not need to do anything, the reservation will be automatically cancelled.</p>
+            
+            <p>If you want to confirm the reservation, follow the instructions and once your payment is registered, you will receive the VOUCHER!</p>
+            
+            <p>The VOUCHER is the document necessary to pick up the car in Cuba.</p>
+            
+            <p>Along with the VOUCHER, you will need to present your passport and your national driver's license.</p>`
+        },
+        nav: {
+            home: "HOME",
+            about: "ABOUT US",
+            cars: "CARS",
+            offers: "OFFERS",
+            aboutLink: "./about-us",
+            how: "HOW IT WORKS",
+            howLink: "./how-it-works",
+            homeLink: "./",
+        },
+        footer: {
+            join: 'Join to:',
+            news: 'Latest news from Cuba',
+            specialDeals: 'Special Deals',
+            about: "About Us",
+            tc: "Terms & Conditions",
+            privacy: "Privacy and Cookies",
+            usefull: "Usefull Info",
+            support: "Support",
+            contact: "Contact Us",
+            howto: "How to Book",
+            map: "Site Map",
+            social: "Social"
+        }
+    },
+    map: {
+        title: "SITE MAP",
+        superTitle: "Site Map",
+        mapOneTitle: "CORPORATE",
+        mapTwoTitle: "BLOG",
+        mapThreeTitle: "SUPPORT",
+        about: "Quienes Somos",
+        tc: "Terminos y Condiciones",
+        privacy: "Privacidad y Cookies",
+        usefull: "Informacion Util",
+        aboutL: "/quienes-somos",
+        tcL: "/terminos-y-condiciones",
+        privacyL: "/politica-de-privacidad",
+        usefullL: "/informacion-util",
+    }
+} 
+
+module.exports = { text }

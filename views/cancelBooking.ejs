@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar Reserva</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/bookings/ALL">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 Cancelar Reserva
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Razon de la Cancelacion</h6>
+        <p id="id" class="hidden">
+            <%= req.params.id %>
+        </p>
+        <form>
+
+        <p class="two-equal-cols">
+            <span class="reason-pill">Fuerza Mayor</span> <span class="reason-pill">Combustible</span>
+            <span class="reason-pill">Overbooking</span> <span class="reason-pill">Huracan</span>
+        </p>
+        
+        </form>
+        <p class="center" id="cancelFeedback">_</p>
+        
+        <p class="center">
+            <span class="btn center" id="cancelTrigger"><i class="fas fa-trash"></i> Cancelar</span>
+        </p>
+    </div>
+        
+</body>
+</html>

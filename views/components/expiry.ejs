@@ -1,0 +1,25 @@
+<% 
+
+const options = [];
+const now = new Date();
+const currentMonth = now.getMonth() + 1;
+let currentYear = now.getFullYear();
+currentYear = Number(String(currentYear).slice(-2));
+
+for(let i = 0; i < 7; i++) {
+    const year = currentYear + i;
+    const firstMonth = currentYear == year ? currentMonth : 1;
+    for(let m = firstMonth; m < 13; m++) {
+        const expiry = m + "/" + year;
+        options.push(expiry);
+    } 
+}
+
+%>
+<% for(let i = 0; i < options.length; i++){ %>
+    <div>
+        <p value = "<%= options[i] %>">
+            <%= options[i] %>
+        </p>
+    </div>
+<% } %>

@@ -1,0 +1,47 @@
+<div class="modal-background" id="filterModal">
+    <div class="filter-content">
+        <i class="fas fa-times secondary"></i>
+        <h3 class="secondary"><%= footer.sort %></h3>
+        <div class="options">
+            <h4><%= footer.sortTitle %></h4>
+
+            <p class="sort-option" onclick="selectSortOption('ASCE')">
+                <span>
+                    <i class="fas fa-circle" id="ASCE"></i>
+                </span>
+                <%= footer.cheapest %>
+            </p>
+            <p class="sort-option" onclick="selectSortOption('DESC')">
+                <span>
+                    <i class="fas fa-circle" id="DESC"></i> 
+                </span>
+                <%= footer.dearest %>
+            </p>
+
+            <h4><%= footer.filterTitle %></h4>
+            <p class="filter-option" onclick="selectFilterOption('ALL')">
+                <span>
+                    <i class="fas fa-circle" id="ALL"></i> 
+                </span>
+                <%= footer.all %>
+            </p>
+            <p class="filter-option" onclick="selectFilterOption('MAN')">
+                <span>
+                    <i class="fas fa-circle" id="MAN"></i> 
+                </span>
+                <%= footer.manual %>
+            </p>
+            <p class="filter-option" onclick="selectFilterOption('AUT')">
+                <span>
+                    <i class="fas fa-circle" id="AUT"></i> 
+                </span>
+                <%= footer.auto %>
+            </p>
+        </div>
+        <div class="center">
+            <span class="btn" id="filter-action">
+                <i class="fas fa-check-circle"></i> OK
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,204 @@
+<div class="car-form form-div">
+    <h4><%= search.startTitle %></h4>
+    <div class="split-car-form">
+        <div>
+            <p class="input-box">
+                <label for="pickupOffice"><%= search.office %></label>
+                <i class="fas fa-map-marker" data-field="pickupOffice"></i>
+                <input type="text" id="pickupOffice" class="selector" readonly="true" />
+                <div class="select hidden" data-target="pickupOffice" id="pickupOfficeSelect">
+                    <%- include('./officies.ejs', {locations: data.pickupLocations}) %>
+                </div>
+            </p>
+        </div>
+
+        <div>
+            <p class="input-box">
+                <label for="pickupTime"><%= search.time %></label>
+                <i class="fas fa-stopwatch" data-field="pickupTime"></i>
+                <input type="text" id="pickupTime" class="selector" readonly="true" />
+                <div class="select hidden" data-target="pickupTime" id="pickupTimeSelect">
+                    <%- include('./hours.ejs') %>
+                </div>
+            </p>
+        </div>
+        
+    </div>
+
+    <h4><%= search.endTitle %></h4>
+
+    <div class="split-car-form">
+        <div>
+            <p class="input-box">
+                <label for="dropoffOffice"><%= search.office %></label>
+                <i class="fas fa-map-marker" data-field="dropoffOffice"></i>
+                <input type="text" id="dropoffOffice" class="selector" readonly="true" />
+                <div class="select hidden" data-target="dropoffOffice" id="dropoffOfficeSelect">
+                    <%- include('./officies.ejs', {locations: data.dropoffLocations}) %>
+                </div>
+            </p>
+        </div>
+
+        <div>
+            <p class="input-box">
+                <label for="dropoffTime"><%= search.time %></label>
+                <i class="fas fa-stopwatch" data-field="dropoffTime"></i>
+                <input type="text" id="dropoffTime" class="selector" readonly="true" />
+                <div class="select hidden" data-target="dropoffTime" id="dropoffTimeSelect">
+                    <%- include('./hours.ejs') %>
+                </div>
+            </p>
+        </div>
+    </div>
+
+    <h4><%= search.driver %></h4>
+
+    <div class="split-car-form">
+        <div>
+            <p class="input-box">
+                <label for="name"><%= search.name %></label>
+                <i class="fas fa-user" data-field="name"></i>
+                <input type="text" id="name" class="selector" />
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="surname"><%= search.surname %></label>
+                <i class="fas fa-user" data-field="surname"></i>
+                <input type="text" id="surname" class="selector" />
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="mail"><%= search.mail %></label>
+                <i class="fas fa-envelope" data-field="mail"></i>
+                <input type="email" id="mail" class="selector" />
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="phone"><%= search.phone %></label>
+                <i class="fas fa-phone" data-field="phone"></i>
+                <input type="text" id="phone" class="selector" value="+34"/>
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="passport"><%= search.passport %></label>
+                <i class="fas fa-id-card" data-field="passport"></i>
+                <input type="text" id="passport" class="selector" />
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="nationality"><%= search.nationality %></label>
+                <i class="fas fa-flag" data-field="nationality"></i>
+                <input type="text" id="nationality" class="selector" readonly="true" />
+                <div class="select hidden" data-target="nationality" id="nationalitySelect">
+                    <%- include('./countries.ejs') %>
+                </div>
+            </p>
+        </div>
+    </div>
+
+    <h4><%= search.birth %></h4>
+
+    <div class="split-triple-car-form">
+        <div>
+            <p class="input-box">
+                <label for="day"><%= search.day %></label>
+                <i class="fas fa-calendar" data-field="day"></i>
+                <input type="text" id="day" class="selector" readonly="true" />
+                <div class="select hidden" data-target="day" id="daySelect">
+                    <%- include('./days.ejs') %>
+                </div>
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="month"><%= search.month %></label>
+                <i class="fas fa-calendar" data-field="month"></i>
+                <input type="text" id="month" class="selector" readonly="true" />
+                <div class="select hidden" data-target="month" id="monthSelect">
+                    <%- include('./months.ejs', {months: search.months}) %>
+                </div>
+            </p>
+        </div>
+        <div>
+            <p class="input-box">
+                <label for="year"><%= search.year %></label>
+                <i class="fas fa-calendar" data-field="year"></i>
+                <input type="text" id="year" class="selector" readonly="true" />
+                <div class="select hidden" data-target="year" id="yearSelect">
+                    <%- include('./years.ejs') %>
+                </div>
+            </p>
+        </div>
+    </div>
+
+    <h4>Extras</h4>
+    
+    <div class="split-car-form-one">
+        <div class="">
+            <p class="option-driver">
+                <span><i class="fas fa-circle"></i></span> <%= search.second %> (35 <%= req.params.currency %>)
+            </p>
+        </div>
+        <div></div>
+    </div>
+    
+
+    <h4><%= search.pay %></h4>
+
+    <div class="split-car-form">
+
+        <div style="position: relative">
+
+            <div>
+                <p class="option-pay" onclick="selectPayment('creditCardPay')">
+                    <span><i class="fas fa-circle" id="creditCardPay"></i></span> <%= search.creditCard %> (<%= search.commish %> +10%)
+                </p>
+            </div>
+            
+            <div>
+                <p class="option-pay" onclick="selectPayment('bankPay')">
+                    <span><i class="fas fa-circle active" id="bankPay"></i></span> <%= search.bank %>
+                </p>
+            </div>
+
+            <!--
+            
+                <div>
+                    <p class="option-pay" onclick="selectPayment('btcPay')">
+                        <span><i class="fas fa-circle" id="btcPay"></i></span> Bitcoin (<%= search.save %> 10%)
+                    </p>
+                </div>
+            
+                <div>
+                    <p class="option-pay" onclick="selectPayment('zellePay')">
+                        <span><i class="fas fa-circle" id="zellePay"></i></span> Zelle (<%= search.save %> 5%)
+                    </p>
+                </div>
+            -->
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </div>
+
+        <div class="center last-div">
+            <h1 class="finalPriceBottom">
+                <span class="smallTotal">Total:</span> <span class="currencySymbol"></span> <span class="finPrice"><%= data.prices.totalPrice %></span>
+            </h1>
+            <div class="btn-container">
+                <span class="btn" id="bookingTrigger"><i class="fas fa-car"></i> <%= search.book %></span>
+            </div>
+        </div>
+        
+    </div>
+
+   <div id="carSlug" class="hidden"><%= req.params.slug %></div>
+
+</div>

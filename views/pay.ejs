@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+    <script src="/static/js/qrcode.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <%- include('./partials/nav.ejs') %>
+
+        <%- include('./components/siteLocator.ejs', { 
+            itemOne: nav.home, 
+            itemTwo: contents.title, 
+            itemThree: contents.paymentMethods[req.params.method], 
+            hasFilter: false, 
+            finalPrice: ""
+        }) %>
+
+        <div class="red-wave-reverse up">
+            <img src="/static/media/red-wave.svg" alt="">
+        </div>
+
+        <div class="double-col">
+            
+            <%- include('./components/lateralSearch.ejs') %>
+            
+            <div class="results-container">
+                <div class="top-line">
+                    <div>
+                        <h3>
+                            <%= contents.booking %>: <span id="causale"><%= data.booking.causale %></span>
+                        </h3>
+                        <p class="hidden" id="msLeft"><%= data.msLeft %></p>
+                        <p class="displayTimeLeft">
+                            <b>
+                                <%= contents.payB4 %>
+                                <span id="count-down" class="accent"></span>
+                            </b>
+                        </p>
+                    </div>
+
+                    <% if (req.params.method == "btcPay") { %>
+                        <%- include("./components/btcPay.ejs") %>
+                    <% } else if (req.params.method == "zellePay") { %>
+                        <%- include("./components/zellePay.ejs") %>
+                    <% } else if (req.params.method == "bankPay") { %>
+                        <%- include("./components/bankPay.ejs") %>
+                    <% } else if (req.params.method == "creditCardPay") { %>
+                        <%- include("./components/creditCardPay.ejs") %>
+                    <% } else { %>
+                        <h2 class="accent">Error</h2>
+                    <% } %>
+
+                </div>
+                
+                
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

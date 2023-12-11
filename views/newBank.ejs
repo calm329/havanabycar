@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agregar Cuenta Bancaria</title>
+        <meta name="description" content="Login">
+        <%- include('./partials/seo.ejs') %>
+            <%- include('./partials/head.ejs') %>
+                <link rel="stylesheet" href="/static/css/admin.css">
+                <script src="/static/js/admin.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/banks/ALL">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                NUEVA CUENTA
+                <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Datos de la Cuenta</h6>
+
+        <form>
+            <p>
+                <input type="text" id="bank" placeholder="Banco">
+            </p>
+            <p>
+                <input type="text" id="beneficiary" placeholder="Beneficiario">
+            </p>
+            <p>
+                <input type="text" id="iban" placeholder="IBAN">
+            </p>
+            <p>
+                <input type="text" id="bic" placeholder="BIC">
+            </p>
+            <p>
+                <input type="text" id="routing" placeholder="Routing (opcional)">
+            </p>
+            <p>
+                <input type="text" id="address" placeholder="Dirección">
+            </p>
+
+        </form>
+        <p class="center" id="newBankFeedback">_</p>
+
+        <p class="center">
+            <span class="btn center" id="newBankTrigger"><i class="fas fa-search"></i> AGREGAR</span>
+        </p>
+    </div>
+
+</body>
+
+</html>

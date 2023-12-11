@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Office</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/offices">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 NUEVA OFICINA
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Datos Oficina</h6>
+        
+        <form>
+        <p>
+            <input type="text" id="ufficio" placeholder="Ufficio">
+        </p>
+
+        <p class="vendors">
+            <span class="vendor-pill">via</span> <span class="vendor-pill">cubacar</span>
+            <span class="vendor-pill">havanautos</span> <span class="vendor-pill">rex</span>
+            <span class="vendor-pill">daiquiri</span> <span class="vendor-pill">ALL</span>
+        </p>
+
+        <p>
+            <select id="citta">
+                <%- include('./components/citiesOptions.ejs') %>
+            </select>
+        </p>
+        
+        </form>
+        <p class="center" id="newOfficeFeedback">_</p>
+        
+        <p class="center">
+            <span class="btn center" id="newOfficeTrigger"><i class="fas fa-search"></i> CREAR</span>
+        </p>
+    </div>
+        
+</body>
+</html>

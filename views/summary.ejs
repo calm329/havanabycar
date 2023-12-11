@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <%- include('./partials/nav.ejs') %>
+
+        <%- include('./components/siteLocator.ejs', { 
+            itemOne: nav.home, 
+            itemTwo: contents.car,
+            itemThree: contents.mainTitle, 
+            hasFilter: false, 
+            finalPrice: data.finalPrice
+        }) %>
+
+        <div class="red-wave-reverse up">
+            <img src="/static/media/red-wave.svg" alt="">
+        </div>
+
+        <div class="double-col">
+            
+            <%- include('./components/lateralSearch.ejs') %>
+            
+            <div class="results-container">
+                <div class="top-line">
+                    <h2 class="reserva-title"><%= contents.mainTitle %></h2>
+                    <p class="hidden" id="bookingId"><%= data.booking._id %></p>
+                </div>
+
+                <%- include('./components/resumen.ejs', {showVoucher: true} ); %>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

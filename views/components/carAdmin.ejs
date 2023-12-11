@@ -1,0 +1,17 @@
+<div class="singleCarAdmin">
+    <div>
+        <p class="accent"><b><%= car.car_title%></b></p>
+        <p><b><%= car.car_type%></b></p>
+    </div>
+    <div class="split">
+        
+        <div class="center">
+            <i class="<%= car.car_slug %> fas fa-pause hand <%= car.isActive == true ? '' : 'hidden' %>" onclick="carSwitch(false, '<%= car._id%>', '<%= car.car_slug %>')"></i>
+            <i class="<%= car.car_slug %> fas fa-play hand <%= car.isActive == false ? '' : 'hidden' %>" onclick="carSwitch(true, '<%= car._id%>', '<%= car.car_slug %>')"></i>
+        </div>
+        
+        <div class="center">
+            <a href="/car-edit/<%= car._id %>"><i class="fas fa-edit"></i></a>
+        </div>
+    </div>
+</div>

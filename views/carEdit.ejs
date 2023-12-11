@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carro</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/allCars">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 <%= car.car_title%> (<%= car.vendor %>)
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+    </div>
+    
+    <div class="car-edit-form">
+        <p class="accent"><b>Categoria del Carro</b></p>
+        <p class="center">
+            <input type="text" id="car_type" value="<%= car.car_type%>" placeholder="Categoria">
+        </p>
+        <p class="primary center" id="categoryFeed">_</p>
+        <p class="center">
+            <span class="btn" id="changeCategory" onclick="updateCar(['car_type'], '<%= car._id %>', 'categoryFeed')">EDITAR</span>
+        </p>
+    </div>
+
+    <div class="car-edit-form">
+        <p class="accent"><b>Puertas</b></p>
+        <p class="center">
+            <input type="text" id="car_doors" value="<%= car.car_doors%>" placeholder="Puertas">
+        </p>
+        <p class="accent"><b>Pasajeros</b></p>
+        <p class="center">
+            <input type="text" id="car_passengers" value="<%= car.car_passengers %>" placeholder="Pasajeros">
+        </p>
+        <p class="accent"><b>Seguro</b></p>
+        <p class="center">
+            <input type="text" id="car_assicurazione" value="<%= car.car_assicurazione %>" placeholder="Seguro Diario Incluido">
+        </p>
+        <p class="accent"><b>Dias Minimos</b></p>
+        <p class="center">
+            <input type="text" id="minimo_giorni" value="<%= car.minimo_giorni %>" placeholder="Minimo Giorni">
+        </p>
+        <p class="accent"><b>Offset Checkin</b></p>
+        <p class="center">
+            <input type="text" id="checkin_offset_days" value="<%= car.checkin_offset_days %>" placeholder="Offset Checkin">
+        </p>
+        <p class="primary center" id="featuresFeed">_</p>
+        <p class="center">
+            <span class="btn" id="changeFeatures" onclick="updateCar(['car_doors', 'car_passengers', 'car_assicurazione', 'minimo_giorni', 'checkin_offset_days'], '<%= car._id %>', 'featuresFeed')">EDITAR</span>
+        </p>
+    </div>
+
+    <div class="car-edit-form">
+        <p class="accent"><b>Descripcion ES</b></p>
+        <p class="center">
+            <textarea id="gptDesc" rows="15"><%= car.gptDesc ? car.gptDesc.trim() : "" %></textarea>
+        </p>
+        <p class="accent"><b>Descripcion ENG</b></p>
+        <p class="center">
+            <textarea id="gptDescEng" rows="15"><%= car.gptDescEng ? car.gptDescEng.trim() : "" %></textarea>
+        </p>
+        
+        <p class="primary center" id="descriptionsFeed">_</p>
+        <p class="center">
+            <span class="btn" id="changeCategory" onclick="updateCar(['gptDesc', 'gptDescEng'], '<%= car._id %>', 'descriptionsFeed')">EDITAR</span>
+        </p>
+    </div>
+
+    <div class="car-edit-form prices-form">
+        <p class="accent"><b>PRICES USD - HIGH</b></p>
+        <p class="center">
+            <span class="left">3-14 days</span>
+            <input type="text" id="price.USD.High.days6" value="<%= car.price.USD.High.days6 %>" placeholder="6 Days">
+        </p>
+         <!--
+        <p class="center">
+            <span class="left">15 days</span>
+            <input type="text" id="price.USD.High.days15" value="<%= car.price.USD.High.days15 %>" placeholder="15 Days">
+        </p>
+        <p class="center">
+            <span class="left">30 days</span>
+            <input type="text" id="price.USD.High.days30" value="<%= car.price.USD.High.days30 %>" placeholder="30 Days">
+        </p>
+        -->
+
+        <p class="center">
+            <span class="left">15-45 days</span>
+            <input type="text" id="price.USD.High.days45" value="<%= car.price.USD.High.days45 %>" placeholder="45 Days">
+        </p>
+        
+        <p class="accent"><b>PRICES USD - LOW</b></p>
+        <p class="center">
+            <span class="left">3-14 days</span>
+            <input type="text" id="price.USD.Low.days6" value="<%= car.price.USD.Low.days6 %>" placeholder="6 Days">
+        </p>
+        <!--
+        <p class="center">
+            <span class="left">15 days</span>
+            <input type="text" id="price.USD.Low.days15" value="<%= car.price.USD.Low.days15 %>" placeholder="15 Days">
+        </p>
+        <p class="center">
+            <span class="left">30 days</span>
+            <input type="text" id="price.USD.Low.days30" value="<%= car.price.USD.Low.days30 %>" placeholder="30 Days">
+        </p>
+        -->
+        <p class="center">
+            <span class="left">15-45 days</span>
+            <input type="text" id="price.USD.Low.days45" value="<%= car.price.USD.Low.days45 %>" placeholder="45 Days">
+        </p>
+        <p class="accent"><b>PRICES EUR - HIGH</b></p>
+        <p class="center">
+            <span class="left">3-14 days</span>
+            <input type="text" id="price.EUR.High.days6" value="<%= car.price.EUR.High.days6 %>" placeholder="6 Days">
+        </p>
+        <!--
+        <p class="center">
+            <span class="left">15 days</span>
+            <input type="text" id="price.EUR.High.days15" value="<%= car.price.EUR.High.days15 %>" placeholder="15 Days">
+        </p>
+        <p class="center">
+            <span class="left">30 days</span>
+            <input type="text" id="price.EUR.High.days30" value="<%= car.price.EUR.High.days30 %>" placeholder="30 Days">
+        </p>
+        -->
+        <p class="center">
+            <span class="left">15-45 days</span>
+            <input type="text" id="price.EUR.High.days45" value="<%= car.price.EUR.High.days45 %>" placeholder="45 Days">
+        </p>
+        <p class="accent"><b>PRICES EUR - LOW</b></p>
+        <p class="center">
+            <span class="left">3-14 days</span>
+            <input type="text" id="price.EUR.Low.days6" value="<%= car.price.EUR.Low.days6 %>" placeholder="6 Days">
+        </p>
+        <!--
+        <p class="center">
+            <span class="left">15 days</span>
+            <input type="text" id="price.EUR.Low.days15" value="<%= car.price.EUR.Low.days15 %>" placeholder="15 Days">
+        </p>
+        <p class="center">
+            <span class="left">30 days</span>
+            <input type="text" id="price.EUR.Low.days30" value="<%= car.price.EUR.Low.days30 %>" placeholder="30 Days">
+        </p>
+        -->
+        <p class="center">
+            <span class="left">15-45 days</span>
+            <input type="text" id="price.EUR.Low.days45" value="<%= car.price.EUR.Low.days45 %>" placeholder="45 Days">
+        </p>
+        
+        <p class="primary center" id="pricesFeed">_</p>
+
+        <p class="center">
+            <span class="btn" id="changePrice" onclick="updateCar(
+                [
+                    'price.USD.High.days6',
+                    'price.USD.High.days45',
+                    'price.USD.Low.days6',
+                    'price.USD.Low.days45',
+                    'price.EUR.High.days6',
+                    'price.EUR.High.days45',
+                    'price.EUR.Low.days6',
+                    'price.EUR.Low.days45',
+                ], '<%= car._id %>', 'pricesFeed')">EDITAR</span>
+        </p>
+    </div>
+    
+    <div class="car-edit-form">
+        <% for(let i = 0; i < pictures.length; i++) { 
+        const isCover = pictures[i] == car.thumbnail_image;
+        %>
+            <%- include('./components/adminCarPic.ejs', {id: car._id, slug: car.car_slug, img: pictures[i], isCover, index: 'i'+i }) %>
+        <% } %>
+    </div>
+   
+</body>
+</html>

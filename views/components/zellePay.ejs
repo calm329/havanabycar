@@ -1,0 +1,40 @@
+<h2 class="accent">
+    <%= contents.method %> Zelle
+</h2>
+
+<div class="btcPaysplit">
+    <div>
+
+        <p>
+            <%= contents.send %> <b><%= data.pricing.zellePay %> <%= data.booking.currency %></b> <%= contents.toBTC %>
+        </p>
+        
+        <p class="">
+            <b><%= data.btc.zelleEmail %></b>
+        </p>
+
+        <p>
+            <%= contents.toZellePhone %>
+        </p>
+
+        <p class="">
+            <b><%= data.btc.zellePhone %></b>
+        </p>
+
+        <p>
+            <%= contents.pleaseCausale %> <b><%= data.booking.causale %></b>
+        </p>
+
+    </div>
+
+    <div class="center">
+        
+    </div>
+</div>
+
+<div>
+    <p>
+        <% const portal = "/booking/" + data.booking._id; %>
+        <%- contents.next(portal) %>
+    </p>
+</div>

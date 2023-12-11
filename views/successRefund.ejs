@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+
+<body style="overflow-y: hidden;">
+
+    <div class="container">
+        
+        <div class="success-div">
+            <div class="center">
+                <p class="hidden" id="bookingID"><%= req.params.id %></p>
+                <h1><i class="fas fa-check-circle"></i></h1>
+                <h1><%= contents.title%></h1>
+                <p><%- contents.description%></p>
+                <h3><%- contents.here %></h3>
+            </div>
+        </div>
+        
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+
+</html>

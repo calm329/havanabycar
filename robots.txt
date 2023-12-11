@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.drive2cuba.com/sitemap.xml

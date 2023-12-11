@@ -1,0 +1,65 @@
+<h2 class="accent">
+    <%= contents.method %> <%= contents.bankMethod %>
+</h2>
+
+    <div>
+
+        <p>
+            <%= contents.send %> <b><%= data.pricing.bankPay %> <%= data.booking.currency %></b> <%= contents.toBank %>
+        </p>
+
+        <p class="cubaWarning">
+            <%- contents.cubaWarning %> <b><%= data.booking.causale %>'</b>.
+        </p>
+
+        <div class="bankInstructions">
+            <p class="">
+                <b><%= contents.beneficiary %>:</b> <%= data.booking.bankAccount.beneficiary ? data.booking.bankAccount.beneficiary.toUpperCase() : "ADV TRAVEL SERVICE LLC" %>
+            </p>
+
+            <!--
+                <p class="">
+                    <b><%= contents.accountNumber %>:</b> <%= data.booking.bankAccount.iban %>
+                </p>
+            -->
+
+            <p class="">
+                <b>IBAN:</b> <%= data.booking.bankAccount.iban %>
+            </p>
+    
+            <p class="">
+                <b><%= contents.bank %>:</b> <%= data.booking.bankAccount.bank %>
+            </p>
+
+            <!--
+                <p class="">
+                    <b>Routing:</b> <%= data.booking.bankAccount.routing %>
+                </p>
+            -->
+            
+            <p class="">
+                <b>BIC/SWIFT:</b> <%= data.booking.bankAccount.bic %>
+            </p>
+
+            <p class="">
+                <b><%= contents.causale %>:</b> <%= data.booking.causale %>
+            </p>
+
+            <p class="">
+                <b><%= contents.address %>:</b> <%= data.booking.bankAccount.address %>
+            </p>
+
+            <p class="">
+                <b><%= contents.amount %>:</b> <%= data.pricing.bankPay %> <%= data.booking.currencySymbol %>
+            </p>
+
+        </div>
+
+    </div>
+
+<div>
+    <p>
+        <% const portal = "/booking/" + data.booking._id; %>
+        <%- contents.next(portal) %>
+    </p>
+</div>

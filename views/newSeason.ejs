@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Season</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/seasons">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 NUEVA TEMPORADA BAJA
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6>Datos Temporada</h6>
+        
+        <form>
+        <p>
+            <input type="text" id="start" placeholder="Inicio">
+        </p>
+        
+        <p>
+            <input type="text" id="finish" placeholder="Fin">
+        </p>
+        
+        </form>
+        <p class="center" id="newSeasonFeedback">_</p>
+        
+        <p class="center">
+            <span class="btn center" id="newSeasonTrigger"><i class="fas fa-search"></i> CREAR</span>
+        </p>
+    </div>
+        
+</body>
+</html>

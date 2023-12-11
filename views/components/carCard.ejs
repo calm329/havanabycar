@@ -1,0 +1,52 @@
+    <div class="carcard">
+        <div class="daily-price">
+            <span class="currencySymbol"></span> <%= car.priceInfo.dailyPrice %> / <%= contents.day %>
+        </div>
+        <div class="split">
+
+            <div class="pic-div">
+                <div class="pic-box">
+                    <img src="/static/carsPics/<%= car.car_slug %>/<%= car.thumbnail_image %>" alt="">
+                    <div class="vendor-box">
+                        <img src="/static/media/cars/thumbs/<%= car.vendor %>.png" alt="" class="vendor-logo">
+                    </div>
+                </div>
+                <h4 class="primary center">
+                    <%= car.car_title %>
+                    <br>
+                    <%= contents.equivalent %>
+                </h4>
+            </div>
+
+            <div>
+
+                <h3 class="accent" ><%= car.car_type.toUpperCase() %></h3>
+                
+                <%- include('./features.ejs', { car }) %>
+                
+                <div class="inner-split">
+
+                    <%- include('./addOns.ejs') %>
+
+                    <div class="last-col">
+                        
+                        <div class="fullprice-box center">
+                            <h1 class="primary right">
+                                <span class="currencySymbol"></span> <%= car.priceInfo.total %>
+                            </h1>
+                            <a 
+                                href="<%= url + car.car_slug %>/<%= req.params.city %>/<%= req.params.dropoffCity %>/<%= req.params.pickupDate %>/<%= req.params.dropoffDate %>/<%= req.params.currency %>/" 
+                                target="_black"
+                            >
+                                <span class="btn"><%= contents.action %> <i class="fas fa-car"></i></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>

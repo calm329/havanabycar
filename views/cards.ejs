@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARJETAS</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 TARJETAS
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+        <p class="center">
+            <span class="pill">
+                <a href="/cards" id="todas">Todas</a>
+            </span>
+            <span class="pill">
+                <a href="/newCards" id="paid">Nuevas</a>
+            </span>
+        </p>
+
+    </div>
+
+    <div>
+        <h5 class="center accent">
+            TARJETAS: <%= data.cards.length %>
+        </h5>
+    </div>
+
+    <div class="bookings-list">
+        <%  
+            const cards = data.cards;
+            for(let i = 0; i < cards.length; i++){
+        %>
+            <%- include( "./components/cardAdmin.ejs", { card: cards[i] } ) %>
+        <% } %>
+    </div>
+   
+</body>
+</html>

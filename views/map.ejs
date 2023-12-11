@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        <%- include('./partials/nav.ejs') %>
+        <%- include('./components/siteLocator.ejs', { 
+            itemOne: nav.home, 
+            itemTwo: data.lang == "ENG" ? "SITEMAP" : "MAPA DEL SITIO",
+            itemThree: "", 
+            hasFilter: false, 
+            finalPrice: ""
+        }) %>
+
+        <div class="red-wave-reverse up">
+            <img src="/static/media/red-wave.svg" alt="">
+        </div>
+
+        <div class="double-col">
+            
+            <%- include('./components/lateralSearch.ejs') %>
+            
+            <div class="results-container">
+
+                <br>
+                <h1><%= contents.title %></h1>
+
+                <h2 class="accent"><%= contents.mapOneTitle %></h2>
+
+                <div class="triple-split-map">
+                    <div>
+                        <%- include("./components/mapItem", {text: nav.home, link: "./"}) %>
+                    </div>
+                    <div>
+                        <%- include("./components/mapItem", {text: nav.about , link: nav.aboutLink }) %>
+                    </div>
+                    <div>
+                        <%- include("./components/mapItem", {text: nav.how, link: nav.howLink}) %>
+                    </div>
+                </div>
+
+                <h2 class="accent"><%= contents.mapTwoTitle %></h2>
+
+                <div class="triple-split-map">
+                    <% for(let i = 0; i < data.carsClasses.length; i++){ %>
+                        <div>
+                            <%- include("./components/mapCarClass", {obj: data.carsClasses[i]}) %>
+                        </div>
+                    <% } %>
+                </div>
+
+                <h2 class="accent"><%= contents.mapThreeTitle %></h2>
+
+                <div class="triple-split-map">
+                    <div>
+                        <%- include("./components/mapItem", {text: footer.tc, link: footer.tcL}) %>
+                    </div>
+                    <div>
+                        <%- include("./components/mapItem", {text: footer.privacy, link: footer.privacyL}) %>
+                    </div>
+                    <div>
+                        <%- include("./components/mapItem", {text: footer.usefull, link: footer.usefullL}) %>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CANCEL BOOKING </title>
+    <meta name="description" content="CANCEL BOOKING">
+    <meta name="keywords" content="CANCEL BOOKING" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <%- include('./partials/nav.ejs') %>
+        <% if(req.path.includes('/ENG/')){%>
+            <%- include('./partials/cancelEN.ejs') %>
+        <% } else { %>
+            <%- include('./partials/cancelES.ejs') %>
+        <% } %>
+    </div>
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

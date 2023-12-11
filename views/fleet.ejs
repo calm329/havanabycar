@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>">
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <%- include('./partials/nav.ejs') %>
+
+        <%- include('./components/siteLocator.ejs', { 
+            itemOne: nav.home, 
+            itemTwo: contents.fleet, 
+            itemThree: contents.car, 
+            hasFilter: false, 
+            finalPrice: ""
+        }) %>
+
+        <div class="red-wave-reverse up">
+            <img src="/static/media/red-wave.svg" alt="">
+        </div>
+
+        <div class="double-col">
+            
+            <%- include('./components/lateralSearch.ejs') %>
+            
+            <div class="results-container">
+
+                <div class="top-line">
+                    <div>
+                        <h3><%= data.car.car_title %></h3>
+                        <h2 class="accent"><%= data.car.car_type %></h2>
+                    </div>
+                </div>
+                
+                <div class="car-split fleet">
+
+                    <div class="left-col">
+
+                        <div class="pic-stack-container">
+
+                            <div class="center"><b id="polaroidMinus"><<</b></div>
+    
+                            <div>
+                                <% const last = data.pics.length -1; %>
+                                <% for (let i = last; i > -1; i--) { %>
+                                    <% const isActive = i == 0 ? 'top' : '' %>
+                                    <%- include('./components/polaroid.ejs', { isActive, slug: data.car.car_slug, pic: data.pics[i] }) %>
+                                <% } %>
+                            </div>
+                            
+                            <div class="center"><b id="polaroidPlus">>></b></div>
+    
+                        </div>
+
+                    </div>
+
+                    <%- include("./components/fleetDetails.ejs") %>
+                
+                </div>
+
+                <div>
+                    <% const desc = lang == "ENG" ? data.car.gptDescEng : data.car.gptDesc; %>
+                    <h4 class="accent"><%= contents.description %></h4>
+                    <p><%= desc %></p>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <%- include('./partials/bottom.ejs', {footer}) %>
+
+</body>
+</html>

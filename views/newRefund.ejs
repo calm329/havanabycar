@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= contents.title %></title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="#" onclick="()=> history.back()">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                <%= contents.title %>
+            </b>
+        </h1>
+
+    </div>
+
+    <div class="search-box center">
+        <h6><%= contents.bankData %></h6>
+        <p><%= contents.explainer %></p>
+        
+        <form>
+        <p>
+            <input type="text" id="bank" placeholder="<%= contents.bank %>">
+        </p>
+        <p>
+            <input type="text" id="beneficiary" placeholder="<%= contents.beneficiary %>">
+        </p>
+        <p>
+            <input type="text" id="iban" placeholder="IBAN">
+        </p>
+        <p>
+            <input type="text" id="bic" placeholder="BIC/SWIFT">
+        </p>
+        
+        <p>
+            <input type="text" id="address" placeholder="<%= contents.address %>">
+        </p>
+        
+        </form>
+        <p class="center" id="newBankFeedback">_</p>
+        
+        <p class="center">
+            <span class="btn center" id="newRefundTrigger"><i class="fas fa-check"></i> OK</span>
+        </p>
+
+    </div>
+        
+</body>
+</html>

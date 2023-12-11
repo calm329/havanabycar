@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/analytics.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <meta name="description" content="Login">
+    <%- include('./partials/seo.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center accent">
+            <b>
+                <a href="/admin-panel">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                 RESERVAS
+                 <%- include("./components/logoutBtn.ejs") %>
+            </b>
+        </h1>
+
+        <p class="center">
+            <span class="pill">
+                <a href="/bookings/ALL" id="todas">Todas</a>
+            </span>
+            <span class="pill">
+                <a href="/bookingsPaid" id="paid">Solo Pagadas</a>
+            </span>
+        </p>
+
+    </div>
+
+    <% if(req.path.includes('/bookings/') && !req.path.includes('/bookingsPaid')) { %>
+    <div class="search-box center">
+        <h6>Busqueda</h6>
+        <p class="left" style="padding: 0px 10px;">
+            Buscar reservas por nombre, apellidos, fecha de pick-up, causale
+        </p>
+        <p class="">
+            <input type="text" id="searchField" placeholder="Buscar Reserva">
+        </p>
+        <p class="center">
+            <span class="btn center" id="searchTrigger"><i class="fas fa-search"></i> BUSCAR</span>
+        </p>
+    </div>
+    <% } %>
+
+    <div>
+        <h5 class="center accent">RESERVAS: <%= data.bookings.length %></h5>
+    </div>
+
+    <div class="bookings-list">
+
+        <%  
+            const bookings = data.bookings;
+            for(let i = 0; i < bookings.length; i++){
+        %>
+            
+            <div class="single-booking">
+                <p style="font-size: 17px; border-bottom: 8px solid var(--accent)"><b>#ID: <%=bookings[i].causale%></b></p>
+                <p><b>CLIENTE: <%= bookings[i].driver.name %> <%=bookings[i].driver.surname %></b></p>
+                <p><b>DATE: <%=bookings[i].arrangement.startString %> / <%=bookings[i].arrangement.finishString %></b></p>
+
+                <% 
+                    const d = new Date(bookings[i].date);
+                    const month = Number(d.getMonth()) + 1;
+                    let min = d.getMinutes();
+                    if(min < 10) {
+                        min = "0" + min;
+                    }
+                    const date = d.getDate() + "/" + month + "/" + d.getFullYear() + " (H "+ d.getHours() + ":" +min+" GMT)";
+                %>
+                <p><b>PRENOTATO IL: <%= date %> </b></p>
+                <h6>
+                    <b>ESTADO: <span class="state <%= bookings[i].state %>"><%= bookings[i].state %></span></b>
+                    <% if(bookings[i].isHonorable == true) { %>
+                        <i class="fas fa-check green-text"></i>
+                    <% } %>
+                </h6>
+                
+
+                <h5 class="right bookingPriceAdmin">
+                    <b>PRECIO: <%=data.prices[i]%> <%= bookings[i].currency %></b>
+                </h5>
+
+                <p class="center">
+                    <a href="/booking/<%=bookings[i]._id%>" class="details-btn">
+                        Ver Detalles
+                    </a>
+                </p>
+            </div>
+            
+        <% } %>
+    </div>
+   
+</body>
+</html>

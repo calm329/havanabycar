@@ -1,0 +1,67 @@
+<% const isCustomLink=card.isCustomLink && card.isCustomLink==true; %>
+
+    <div class="single-booking">
+        <div style="position: relative">
+            <% if(card.isUsed==true) { %>
+                <span class="card-used-check">
+                    <i class="fas fa-check"></i>
+                </span>
+                <% } %>
+                    <h3>
+                        <% if (isCustomLink==true) { %>
+                            <i class="fas fa-link"></i>
+                            <% }%>
+                                <%= card.booking %><br>
+
+                                    <% if (!card.isCustomLink || isCustomLink==false) { %>
+                                        <a href="/booking/<%= card.bookingId %>" target="_blank"
+                                            style="font-size: 14px">(Ver Reserva)</a>
+                                        <% } %>
+                    </h3>
+                    <p><b class="accent">Titular:</b>
+                        <%= card.holder %>
+                    </p>
+                    <p><b class="accent">Numero:</b>
+                        <%= card.cardNumber.replace(/(.{4})/g, "$1 " ) %>
+                    </p>
+                    <p><b class="accent">Caducidad:</b>
+                        <%= card.expiry %>
+                    </p>
+                    <p><b class="accent">CVV:</b>
+                        <%= card.cvv %>
+                    </p>
+
+                    <h1 class="right" style="padding-right: 20px">
+                        <%= card.amount %>
+                            <%= card.currencySymbol %>
+                    </h1>
+
+                    <% if(card.passportFile) { %>
+                        <div class="center">
+
+                            <p>
+                                <a class="details-btn" href="/static/CCS/<%= card.bookingId %>/<%= card.passportFile %>"
+                                    download>
+                                    <i class="fas fa-download"></i> Passport
+                                </a>
+                            </p>
+
+                            <p>
+                                <a class="details-btn" href="/static/CCS/<%= card.bookingId %>/<%= card.selfieFile %>"
+                                    download>
+                                    <i class="fas fa-download"></i> Selfie
+                                </a>
+                            </p>
+
+                            <p>
+                                <a class="details-btn" href="/static/CCS/<%= card.bookingId %>/<%= card.cardFile %>"
+                                    download>
+                                    <i class="fas fa-download"></i> Card
+                                </a>
+                            </p>
+
+                        </div>
+                        <% } %>
+
+        </div>
+    </div>

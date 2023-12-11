@@ -1,0 +1,28 @@
+<section id="promo">
+    <div>
+        <h1 class="center accent"><%= contents.promo %></h1>
+    </div>
+    <div class="promos">
+        <div></div>
+        <div class="promo">
+            <h5><%= contents.amigo.toUpperCase() %></h5> 
+            <h1>
+                <i class="fas fa-user-friends"></i>
+            </h1>
+            <div class="divider"></div>
+            <p><b>50 <span class="currencySymbol"></span></b> <%- contents.forYou %></p>
+            <p><b>25 <span class="currencySymbol"></span></b>  <%- contents.forHim %></p> 
+        </div>
+        <div></div>
+        <div class="promo last-promo">
+            <h5><%= contents.btc.toUpperCase() %></h5>
+            <h1>
+                <i class="fab fa-btc"></i>
+            </h1>
+            <div class="divider"></div>
+            <p><%- contents.save10 %></p>
+            <p><%- contents.fast %></p> 
+        </div>
+        <div></div>
+    </div>
+</section>

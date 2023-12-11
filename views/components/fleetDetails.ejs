@@ -1,0 +1,32 @@
+<div class="fleet-details">
+    
+    <div>
+        
+        <h4 class="accent"><%= contents.details %></h4>
+
+        <p>
+            <b><i class="fas fa-user"></i></b> <%= data.car.car_passengers %> <%= footer.pax %>
+        </p>
+        
+        <p>
+            <b><i class="fas fa-car"></i></b> <%= data.car.car_doors %> <%= footer.doors %>
+        </p>
+    
+        <p>
+            <b><i class="fas fa-sitemap"></i></b> <%= data.car.car_transmission %>
+        </p>
+
+        <p>
+            <b><i class="fas fa-thermometer-quarter"></i></b> A/C
+        </p>
+
+    </div>
+
+    <div>
+        <h4 class="accent"><%= contents.included %></h4>
+        <p><i class="fas fa-check-circle" style="color: green"></i> <%= footer.insurance %></p>
+        <p><i class="fas fa-check-circle" style="color: green"></i> <%= footer.fuel %> (60 <span class="currencySymbol"></span>)</p>
+        <p><i class="fas fa-check-circle" style="color: green"></i> <%= footer.unlimited %></p>
+    </div>
+    
+</div>

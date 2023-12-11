@@ -1,0 +1,37 @@
+<section style="border-top: 2px solid var(--primary); border-bottom: 2px solid var(--primary)">
+    <div>
+        <p>
+            <img src="/static/media/idme.png" class="idme-pay" alt="">
+        </p>
+    </div>
+    <div class="docs-upload-grid">
+
+        <div class="card-field center passportPicture">
+            <input type="file" id="passportPicture" class="hidden">
+            <label for="passportPicture" class="evidenceUploader">
+                <i class="fas fa-upload"></i>
+                <i class="fas fa-check-circle hidden"></i>
+                <br><%= contents.passportPicture %>
+            </label>
+        </div>
+    
+        <div class="card-field selfiePicture">
+            <input type="file" id="selfiePicture" class="hidden">
+            <label for="selfiePicture" class="evidenceUploader">
+                <i class="fas fa-upload"></i>
+                <i class="fas fa-check-circle hidden"></i>
+                <br><%= contents.selfiePicture %>
+            </label>
+        </div>
+    
+        <div class="card-field cardPicture">
+            <input type="file" id="cardPicture" class="hidden">
+            <label for="cardPicture" class="evidenceUploader">
+                <i class="fas fa-upload"></i>
+                <i class="fas fa-check-circle hidden"></i>
+                <br><%=contents.cardPicture %>
+            </label>
+        </div>
+    
+    </div>
+</section>

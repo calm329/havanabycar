@@ -1,0 +1,12 @@
+<div class="singleCarAdmin" id="<%= office._id %>">
+    <div>
+        <p ><b><%= office.ufficio %></b></p>
+        <p ><b class="accent">Ciudad:</b> <%= office.citta %></p>
+        <p ><b class="accent">Vendor:</b> <%= office.azienda == "daiquiri" ? office.azienda : "TODOS" %></p>
+    </div>
+    <div class="center">
+        <div class="center">
+            <i class="fas fa-trash hand accent" onclick="deleteRecord('<%= office._id %>', '/delete-office')"></i>
+        </div>
+    </div>
+</div>

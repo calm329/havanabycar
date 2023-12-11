@@ -1,0 +1,8 @@
+<% const selectedClass = isCover == true ? 'selected' : '' %>
+<p class="pics <%= index %> <%= selectedClass %>">
+    <img src="/static/carsPics/<%= slug %>/<%= img %>" alt="">
+    <span class="accent selected"><b>Cover</b></span>
+    <span class="hand not-selected" onclick="setAsCover('<%= id %>', '<%= img %>', '<%= index %>')">
+        <b>Set as Cover</b>
+    </span>
+</p>

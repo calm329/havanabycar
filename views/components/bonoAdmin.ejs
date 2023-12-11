@@ -1,0 +1,16 @@
+<div class="singleCarAdmin">
+    <div>
+        <p><b>Codigo: <%= bono.code %></b></p>
+        <p>
+            Utilizado: 
+            <% if(bono.isUsed == true) { %>
+                <i class="fas fa-check-circle" style="color: green"></i>
+            <% } else { %>
+                <i class="fas fa-window-close accent"></i>
+            <% } %>
+        </p>
+    </div>
+    <div class="center">
+        <h3 style="color: green"><%= bono.size %> $|€</h3>
+    </div>
+</div>
