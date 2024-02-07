@@ -1,69 +1,55 @@
 <header>
+  <!--DESK-->
+  <nav class="deskNav">
+    <div class="logo">
+      <a href="<%= nav.homeLink %>">
+        <img src="/static/media/logo.png" alt="" />
+      </a>
+    </div>
 
-    <!--DESK-->
-    <nav class="deskNav">
-        <div class="logo">
-            <a href="<%= nav.homeLink %>">
-                <img src="/static/media/havana_by_car.png" alt="">
-            </a>
+    <div class="links">
+      <p class="homeLink">
+        <a href="<%= nav.homeLink %>" class="homeLink"
+          ><span> <%= nav.home %> </span></a
+        >
+      </p>
+      <p id="carMenuLink" class="fleetLink">
+        <a href="#" class="navLink fleetLink">
+          <%= nav.cars %>
+          <i class="fas fa-caret-square-down"></i>
+        </a>
+      </p>
+      <p class="howLink">
+        <a href="<%= nav.howLink %>" class="howLink"> <%= nav.how %> </a>
+      </p>
 
-        </div>
+      <p class="promoLink">
+        <a href="<%= nav.homeLink %>#promoWave" class="promoLink">
+          <%= nav.offers %>
+        </a>
+      </p>
 
-        <div class="links">
-            <p class="homeLink">
-                <a href="<%= nav.homeLink %>" class="homeLink"><span>
-                        <%= nav.home %>
-                    </span></a>
-            </p>
-            <p id="carMenuLink" class="fleetLink">
-                <a href="#" class="navLink fleetLink">
-                    <%= nav.cars %>
-                        <i class="fas fa-caret-square-down"></i>
-                </a>
-            </p>
-            <p class="howLink">
-                <a href="<%= nav.howLink %>" class="howLink">
-                    <%= nav.how %>
-                </a>
-            </p>
+      <p class="aboutLink">
+        <a href="<%= nav.aboutLink %>" class="aboutLink"> <%= nav.about %> </a>
+      </p>
+    </div>
 
-            <p class="promoLink">
-                <a href="<%= nav.homeLink %>#promoWave" class="promoLink">
-                    <%= nav.offers %>
-                </a>
-            </p>
+    <%- include('./navCarslist.ejs') %>
 
+    <div class="options">
+      <%- include('./currencySelector.ejs') %>
 
-            <p class="aboutLink">
-                <a href="<%= nav.aboutLink %>" class="aboutLink">
-                    <%= nav.about %>
-                </a>
-            </p>
+      <p>
+        <a href="/ENG/" class="engFlag hidden">
+          <img src="/static/media/us.png" alt="Lengua Inglesa" class="flag" />
+        </a>
+        <a href="/" class="esFlag hidden">
+          <img src="/static/media/es.png" alt="Spanish Language" class="flag" />
+        </a>
+      </p>
+    </div>
+  </nav>
 
-        </div>
-
-        <%- include('./navCarslist.ejs') %>
-
-            <div class="options">
-
-                <%- include('./currencySelector.ejs') %>
-
-                    <p>
-                        <a href="/ENG/" class="engFlag hidden">
-                            <img src="/static/media/us.png" alt="Lengua Inglesa" class="flag">
-                        </a>
-                        <a href="/" class="esFlag hidden">
-                            <img src="/static/media/es.png" alt="Spanish Language" class="flag">
-                        </a>
-                    </p>
-
-            </div>
-    </nav>
-
-    <%- include('./mobNav.ejs') %>
-
-        <%- include('./mobMenu.ejs') %>
-
-            <%- include('./feedbacks.ejs') %>
-
+  <%- include('./mobNav.ejs') %> <%- include('./mobMenu.ejs') %> <%-
+  include('./feedbacks.ejs') %>
 </header>

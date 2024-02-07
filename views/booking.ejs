@@ -1,185 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <%- include('./partials/analytics.ejs') %>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Booking</title>
-        <meta name="description" content="Login">
-        <%- include('./partials/seo.ejs') %>
-            <%- include('./partials/head.ejs') %>
-                <link rel="stylesheet" href="/static/css/admin.css">
-                <script src="/static/js/admin.js" type="module"></script>
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking</title>
+    <meta name="description" content="Login" />
+    <%- include('./partials/seo.ejs') %> <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/css/admin.css" />
+    <script src="/static/js/admin.js" type="module"></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <% if(req.isAdmin==true) { %>
-            <h1 class="center accent">
-                <b>
-                    <span onclick="window.history.back()" class="hand">
-                        <i class="fas fa-arrow-circle-left primary"></i>
-                    </span>
-                    RESERVA
-                </b>
-                <%- include("./components/logoutBtn.ejs") %>
-            </h1>
-            <% } else { %>
-                <p class="center">
-                    <a href="/">
-                        <img src="/static/media/havana_by_car.png" alt="" class="logo-admin">
-                    </a>
-                </p>
-                <% } %>
+      <% if(req.isAdmin==true) { %>
+      <h1 class="center accent">
+        <b>
+          <span onclick="window.history.back()" class="hand">
+            <i class="fas fa-arrow-circle-left primary"></i>
+          </span>
+          RESERVA
+        </b>
+        <%- include("./components/logoutBtn.ejs") %>
+      </h1>
+      <% } else { %>
+      <p class="center">
+        <a href="/">
+          <img src="/static/media/logo.png" alt="" class="logo-admin" />
+        </a>
+      </p>
+      <% } %>
     </div>
 
-    <div class="search-box summary-admin" style="max-width: 800px; padding: 20px 0px;">
+    <div
+      class="search-box summary-admin"
+      style="max-width: 800px; padding: 20px 0px"
+    >
+      <div class="admin-booking-details">
+        <% const booking=data.booking; %>
 
-        <div class="admin-booking-details">
-            <% const booking=data.booking; %>
+        <h2 class="accent"><%= contents.mainTitle %></h2>
+        <p class="hidden" id="bookingID"><%= req.params.id %></p>
+        <p><b>ID:</b> <span id="id"> <%= booking.causale %> </span></p>
 
-                <h2 class="accent">
-                    <%= contents.mainTitle %>
-                </h2>
-                <p class="hidden" id="bookingID">
-                    <%= req.params.id %>
-                </p>
-                <p>
-                    <b>ID:</b> <span id="id">
-                        <%= booking.causale %>
-                    </span>
-                </p>
+        <p>
+          <b>STATUS:</b>
+          <span class="state <%= booking.state %>">
+            <%= contents.state[booking.state] %>
+          </span>
+        </p>
 
-                <p>
-                    <b>STATUS:</b>
-                    <span class="state <%= booking.state %>">
-                        <%= contents.state[booking.state] %>
-                    </span>
-                </p>
+        <% if(booking.isHonorable==true && req.isAdmin==true ){ %>
+        <p>
+          <b class="state PAGADO"
+            ><i class="fas fa-check-circle"></i> HONORABLE</b
+          >
+        </p>
+        <% } %>
 
-                <% if(booking.isHonorable==true && req.isAdmin==true ){ %>
-                    <p>
-                        <b class="state PAGADO"><i class="fas fa-check-circle"></i> HONORABLE</b>
-                    </p>
-                    <% } %>
+        <h2 class="" style="color: green">
+          <span style="margin-right: 10px">TOTAL: </span>
+          <% const crossedClass=data.finalPrice==data.fullPrice ? "hidden" : ""
+          ;%>
 
-                        <h2 class="" style="color: green">
-                            <span style="margin-right: 10px">TOTAL: </span>
-                            <% const crossedClass=data.finalPrice==data.fullPrice ? "hidden" : "" ;%>
+          <span class="primary crossed <%= crossedClass %>">
+            <%= data.fullPrice %>
+          </span>
+          <%= data.finalPrice %> <%= booking.currencySymbol %>
 
-                                <span class="primary crossed <%= crossedClass %>">
-                                    <%= data.fullPrice %>
-                                </span>
-                                <%= data.finalPrice %>
-                                    <%= booking.currencySymbol %>
+          <br />
+          <span class="summary-payment-method">
+            <%= contents.methods[booking.paymentMethod] %>
+          </span>
+        </h2>
 
-                                        <br>
-                                        <span class="summary-payment-method">
-                                            <%= contents.methods[booking.paymentMethod] %>
-                                        </span>
-                        </h2>
+        <% if(req.isAdmin==true && data.booking.state=="PROCESANDO" &&
+        data.booking.paymentMethod=="creditCardPay" ) { %>
+        <p class="voucherLine">
+          <span class="voucherDownload hand" id="rejectCardBTN">
+            <i class="fas fa-credit-card"></i> RECHAZAR
+          </span>
+        </p>
+        <% } %> <% if(req.isAdmin==true && data.booking.state=="REFUNDED" ) { %>
+        <p class="voucherLine">
+          <span class="voucherDownload hand" id="refundRejected">
+            <i class="fas fa-window-close"></i> NO REEMBOLSO
+          </span>
+        </p>
+        <% } %> <% if(data.booking.hasFinalVoucher==true &&
+        data.booking.state=="PAGADO" ) { %>
+        <p class="voucherLine">
+          <a
+            href="/static/pdf/<%= data.booking._id %>/booking-HAVANABYCAR.pdf"
+            download
+          >
+            <span class="voucherDownload">
+              <i class="fas fa-download"></i>
+              <%= contents.download %>
+            </span>
+          </a>
+        </p>
+        <% } %> <% if(data.booking.state=="PAGADO" ) { %>
+        <p class="voucherLine">
+          <a
+            href="/static/pdf/<%= data.booking._id %>/invoice-HAVANABYCAR.pdf"
+            download
+          >
+            <span class="voucherDownload">
+              <i class="fas fa-download"></i>
+              <%= contents.downloadInvoice %>
+            </span>
+          </a>
+        </p>
+        <% } %> <% if(data.booking.state=="PENDIENTE" && req.isAdmin !=true) {
+        %> <%- include("./components/uploadEvidence") %> <% } %> <%
+        if(data.booking.state=="PROCESANDO" && req.isAdmin==true &&
+        data.booking.evidence && data.booking.evidence !="" ) { %>
+        <p class="voucherLine">
+          <a href="<%= data.booking.evidence %>" download>
+            <span class="voucherDownload">
+              <i class="fas fa-download"></i>
+              Descargar Evidencia de Pago
+            </span>
+          </a>
+        </p>
+        <% } %> <% if((data.booking.state=="CANCELADO" ||
+        data.booking.state=="RECHAZADO" ) && req.isAdmin !=true) { const
+        refundUrl=lang=="ENG" ? "/ENG/new-refund/" + data.booking._id :
+        "/nueva-devolucion/" + data.booking._id; %>
+        <p class="voucherLine">
+          <a href="<%= refundUrl %>">
+            <span class="voucherDownload">
+              <i class="fas fa-coins"></i>
+              <%= contents.yourBank %>
+            </span>
+          </a>
+        </p>
+        <% } %>
+      </div>
 
-                        <% if(req.isAdmin==true && data.booking.state=="PROCESANDO" &&
-                            data.booking.paymentMethod=="creditCardPay" ) { %>
-                            <p class="voucherLine">
-                                <span class="voucherDownload hand" id="rejectCardBTN">
-                                    <i class="fas fa-credit-card"></i> RECHAZAR
-                                </span>
-                            </p>
-                            <% } %>
-
-                                <% if(req.isAdmin==true && data.booking.state=="REFUNDED" ) { %>
-                                    <p class="voucherLine">
-                                        <span class="voucherDownload hand" id="refundRejected">
-                                            <i class="fas fa-window-close"></i> NO REEMBOLSO
-                                        </span>
-                                    </p>
-                                    <% } %>
-
-                                        <% if(data.booking.hasFinalVoucher==true && data.booking.state=="PAGADO" ) { %>
-                                            <p class="voucherLine">
-                                                <a href="/static/pdf/<%= data.booking._id %>/booking-HAVANABYCAR.pdf"
-                                                    download>
-                                                    <span class="voucherDownload">
-                                                        <i class="fas fa-download"></i>
-                                                        <%= contents.download %>
-                                                    </span>
-                                                </a>
-                                            </p>
-                                            <% } %>
-
-                                                <% if(data.booking.state=="PAGADO" ) { %>
-                                                    <p class="voucherLine">
-                                                        <a href="/static/pdf/<%= data.booking._id %>/invoice-HAVANABYCAR.pdf"
-                                                            download>
-                                                            <span class="voucherDownload">
-                                                                <i class="fas fa-download"></i>
-                                                                <%= contents.downloadInvoice %>
-                                                            </span>
-                                                        </a>
-                                                    </p>
-                                                    <% } %>
-
-                                                        <% if(data.booking.state=="PENDIENTE" && req.isAdmin !=true) {
-                                                            %>
-                                                            <%- include("./components/uploadEvidence") %>
-                                                                <% } %>
-
-                                                                    <% if(data.booking.state=="PROCESANDO" &&
-                                                                        req.isAdmin==true && data.booking.evidence &&
-                                                                        data.booking.evidence !="" ) { %>
-                                                                        <p class="voucherLine">
-                                                                            <a href="<%= data.booking.evidence %>"
-                                                                                download>
-                                                                                <span class="voucherDownload">
-                                                                                    <i class="fas fa-download"></i>
-                                                                                    Descargar Evidencia de Pago
-                                                                                </span>
-                                                                            </a>
-                                                                        </p>
-                                                                        <% } %>
-
-                                                                            <% if((data.booking.state=="CANCELADO" ||
-                                                                                data.booking.state=="RECHAZADO" ) &&
-                                                                                req.isAdmin !=true) { const
-                                                                                refundUrl=lang=="ENG"
-                                                                                ? "/ENG/new-refund/" + data.booking._id
-                                                                                : "/nueva-devolucion/" +
-                                                                                data.booking._id; %>
-                                                                                <p class="voucherLine">
-                                                                                    <a href="<%= refundUrl %>">
-                                                                                        <span class="voucherDownload">
-                                                                                            <i class="fas fa-coins"></i>
-                                                                                            <%= contents.yourBank %>
-                                                                                        </span>
-                                                                                    </a>
-                                                                                </p>
-                                                                                <% } %>
-        </div>
-
-        <%- include('./partials/divider.ejs'); %>
-
-            <%- include('./components/resumen.ejs', {showVoucher: false} ); %>
-
-                <% if (req.isAdmin==true) { %>
-
-                    <%- include('./partials/divider.ejs'); %>
-
-                        <%- include('./components/managePaymentMethods.ejs', { prices: data.prices }); %>
-
-                            <%- include('./partials/divider.ejs'); %>
-
-                                <%- include('./components/manageBookingState.ejs'); %>
-
-                                    <% } %>
-
+      <%- include('./partials/divider.ejs'); %> <%-
+      include('./components/resumen.ejs', {showVoucher: false} ); %> <% if
+      (req.isAdmin==true) { %> <%- include('./partials/divider.ejs'); %> <%-
+      include('./components/managePaymentMethods.ejs', { prices: data.prices });
+      %> <%- include('./partials/divider.ejs'); %> <%-
+      include('./components/manageBookingState.ejs'); %> <% } %>
     </div>
 
-    <% if(req.isAdmin !=true) { %>
-        <%- include('./partials/bottom.ejs'); %>
-            <% } %>
-
-</body>
-
+    <% if(req.isAdmin !=true) { %> <%- include('./partials/bottom.ejs'); %> <% }
+    %>
+  </body>
 </html>
