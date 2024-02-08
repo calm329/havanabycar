@@ -13,7 +13,7 @@ const startHTML = `
 <div style="width: 95%; max-width: 600px; margin: 20px auto; padding: 20px 0px; background-color: white; color: black; border-right: 5px solid black; border-left: 5px solid black; overflow-x: hidden; border-radius: 20px;">
 <div>
 <p>
-<img style="max-width: 200px; display: block; margin: auto; margin-bottom: 20px" src="https://https://havanabycar.co/static/media/logo.png">
+<img style="max-width: 200px; display: block; margin: auto; margin-bottom: 20px" src="https://cubagoldcar.com/static/media/logo.png">
 </p>
 ${trafficLines}
 </div>`;
@@ -24,7 +24,7 @@ const finishHTML = (greetz, whatsapp) => {
 <p>${whatsapp}</p>
 <p>${greetz}
 <br>
-<b>HAVANA<span style="color:red">BY</span>CAR</b>
+<b style="color: blue">CUBA<span style="color:red">GOLD</span>CAR</b>
 <br></p>
 </div>
 </div>
@@ -36,8 +36,8 @@ const finishHTML = (greetz, whatsapp) => {
 const mainPaymentLink = (language, booking) => {
   const baseUrl =
     language == "ENG"
-      ? "https://havanabycar.co/ENG/pay/"
-      : "https://havanabycar.co/pago/";
+      ? "https://cubagoldcar.com/ENG/pay/"
+      : "https://cubagoldcar.com/pago/";
   const url = baseUrl + booking.paymentMethod + "/" + booking._id;
   return url;
 };
@@ -46,7 +46,7 @@ const paymentBTN = (language, booking, translation, superTotal) => {
   const url = mainPaymentLink(language, booking);
   const html = `
 <p style="text-align: center; margin: 20px auto;">
-<a href="${url}" style="background-color: red; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 5px 15px; border-radius: 10px; text-align: center">
+<a href="${url}" style="background-color: blue; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 5px 15px; border-radius: 10px; text-align: center">
 ${translation.mailText[language].payNow} ${
     translation.mailText[language].methods[booking.paymentMethod]
   }
@@ -74,7 +74,7 @@ const reactivateBTN = (url, language) => {
     language == "ENG" ? "REACTIVATE BOOKING" : "REACTIVAR RESERVA";
   const html = `
 <p style="text-align: center; margin: 20px auto;">
-<a href="${url}" style="background-color: red; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 10px 25px; border-radius: 10px; text-align: center">
+<a href="${url}" style="background-color: blue; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 10px 25px; border-radius: 10px; text-align: center">
 ${btnText}
 </a></p>`;
   return html;
@@ -84,7 +84,7 @@ const go2PortalBTN = (url, language) => {
   const btnText = language == "ENG" ? "CHECK BOOKING" : "VER RESERVA";
   const html = `
 <p style="text-align: center; margin: 20px auto;">
-<a href="${url}" style="background-color: red; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 10px 25px; border-radius: 10px; text-align: center">
+<a href="${url}" style="background-color: blue; cursor: pointer; text-decoration: none; color: white; font-weight: bold; display: inline-block; padding: 10px 25px; border-radius: 10px; text-align: center">
 ${btnText}
 </a></p>`;
   return html;

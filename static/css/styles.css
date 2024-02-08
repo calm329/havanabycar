@@ -4,8 +4,8 @@
   */
   --primary: black;
   --secondary: white;
-  --accent: rgb(220, 14, 14);
-  --slighAccent: rgb(249, 31, 31);
+  --accent: rgb(14, 14, 220);
+  --slighAccent: rgb(31, 31, 249);
   --green: lime;
   --dark: rgb(67, 66, 66);
 }
@@ -15,7 +15,7 @@ body {
   font-size: 18px;
   margin: 0;
   overflow-x: hidden !important;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -144,7 +144,6 @@ body {
   left: 46%;
   z-index: 1;
   overflow-y: hidden;
-
 }
 
 #loader img {
@@ -164,25 +163,24 @@ body {
 
   20% {
     left: 40%;
-    top: 300px
+    top: 300px;
   }
 
   50% {
     left: 55%;
-    top: 250px
+    top: 250px;
   }
 
   70% {
     left: 60%;
-    top: 300px
+    top: 300px;
   }
 
   100% {
     left: 50%;
-    top: 250px
+    top: 250px;
   }
 }
-
 
 .modal-background .traffic-lines #line-container {
   position: absolute;
@@ -228,18 +226,13 @@ body {
   }
 
   50% {
-    scale: .9
+    scale: 0.9;
   }
-
-  ;
 
   100% {
-    scale: 1
+    scale: 1;
   }
-
-  ;
 }
-
 
 .modal-background.active .trapezoid,
 .modal-background.active #loading {
@@ -271,7 +264,7 @@ body {
 
 /*FOOTER*/
 footer {
-  background-color: var(--primary);
+  background-color: rgba(220, 14, 14);
   color: var(--secondary);
   position: relative;
   top: 20px;
@@ -295,7 +288,6 @@ nav {
   height: 100px;
   align-items: center;
   background-color: white;
-
 }
 
 nav .options {
@@ -324,12 +316,18 @@ nav .options {
 .currencySelector div:hover {
   color: var(--primary);
   font-weight: bold;
-
 }
 
 .currencySelector div.selected {
   background-color: var(--slighAccent);
-  background-image: linear-gradient(to bottom right, var(--secondary), var(--slighAccent), var(--slighAccent), var(--slighAccent), var(--slighAccent));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary),
+    var(--slighAccent),
+    var(--slighAccent),
+    var(--slighAccent),
+    var(--slighAccent)
+  );
   color: var(--secondary);
   font-weight: bold;
   border-radius: 5px;
@@ -345,7 +343,7 @@ nav .logo img {
   width: 90%;
   max-width: 300px;
   margin-left: 10%;
-  margin-top: auto;;
+  margin-top: auto;
 }
 
 nav .links {
@@ -467,11 +465,11 @@ nav .carslist.active,
 
 @keyframes appearList {
   0% {
-    scale: 0
+    scale: 0;
   }
 
   100% {
-    scale: 1
+    scale: 1;
   }
 }
 
@@ -489,7 +487,6 @@ nav .carslist div {
 
 nav .carslist a div {
   color: var(--primary);
-
 }
 
 nav .carslist a {
@@ -568,7 +565,7 @@ nav .fa-caret-square-down {
 
 .mobMenuLinks a.accent {
   color: var(--secondary) !important;
-  animation: hightlightMobMenu .4s forwards ease;
+  animation: hightlightMobMenu 0.4s forwards ease;
 }
 
 @keyframes hightlightMobMenu {
@@ -581,7 +578,7 @@ nav .fa-caret-square-down {
   50% {
     color: var(--secondary) !important;
     padding: 0px 7px;
-    border-bottom: 2px solid var(--accent)
+    border-bottom: 2px solid var(--accent);
   }
 
   100% {
@@ -607,7 +604,7 @@ nav .fa-caret-square-down {
   position: absolute;
   top: 0px;
   right: 0px;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(220, 14, 14);
   border-radius: 10px;
   width: 40%;
   padding-bottom: 20px;
@@ -688,13 +685,13 @@ button:hover {
 }
 
 .mobSearchToggle {
-  animation: popup .7s forwards ease;
+  animation: popup 0.7s forwards ease;
 }
 
 @keyframes appear {
   100% {
     scale: 1;
-    display: block
+    display: block;
   }
 }
 
@@ -735,7 +732,7 @@ button:hover {
 .modal-background.active .filter-content,
 .modal-background.active .extraDay-content {
   display: block;
-  animation: popup .4s forwards ease;
+  animation: popup 0.4s forwards ease;
 }
 
 .modal-background.active .filter-content h3,
@@ -826,7 +823,7 @@ input[type="date"] {
 textarea {
   width: 90%;
   font-size: 16px;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   font-weight: bold;
   padding: 10px;
 }
@@ -845,7 +842,7 @@ label {
 }
 
 label.active {
-  animation: animateLabel .2s linear forwards;
+  animation: animateLabel 0.2s linear forwards;
 }
 
 .select {
@@ -946,16 +943,16 @@ label.active {
 }
 
 .calendar-container.active {
-  animation: popup .4s forwards ease;
+  animation: popup 0.4s forwards ease;
 }
 
 @keyframes popup {
   0% {
-    scale: 0
+    scale: 0;
   }
 
   100% {
-    scale: 1
+    scale: 1;
   }
 }
 
@@ -1034,7 +1031,13 @@ label.active {
   position: fixed;
   top: 0px;
   right: 2vw;
-  background-image: linear-gradient(to bottom right, var(--accent), var(--primary), var(--primary), var(--primary));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--accent),
+    var(--primary),
+    var(--primary),
+    var(--primary)
+  );
   color: var(--secondary);
   padding: 0px 20px;
   border-radius: 20px;
@@ -1055,46 +1058,56 @@ label.active {
 }
 
 .visible {
-  animation: comeDown .4s linear forwards;
+  animation: comeDown 0.4s linear forwards;
 }
 
 @keyframes comeDown {
   0% {
-    top: 0px
+    top: 0px;
   }
 
   10% {
     top: 80px;
-    z-index: 2
+    z-index: 2;
   }
 
   50% {
     top: 100px;
-    z-index: 2
+    z-index: 2;
   }
 
   70% {
     top: 100px;
     z-index: 2;
-    right: 1vw
+    right: 1vw;
   }
 
   90% {
     top: 100px;
     z-index: 2;
-    right: 3vw
+    right: 3vw;
   }
 
   100% {
     top: 100px;
     z-index: 2;
-    right: 2vw
+    right: 2vw;
   }
 }
 
 /*HOME*/
 #road {
-  background-image: linear-gradient(to bottom right, var(--primary), var(--accent), var(--slighAccent), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--primary),
+    var(--accent),
+    var(--slighAccent),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary)
+  );
   height: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1120,14 +1133,20 @@ label.active {
 }
 
 .infinite:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
   width: 100%;
   height: 10px;
-  background: linear-gradient(90deg, #fff 0%, #fff 70%, #525252 70%, #525252 100%);
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff 70%,
+    #525252 70%,
+    #525252 100%
+  );
   background-size: 120px;
   animation: animate 0.5s linear infinite;
 }
@@ -1143,7 +1162,7 @@ label.active {
 }
 
 .infinite:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 40px;
@@ -1202,8 +1221,6 @@ label.active {
     top: 20px;
     right: 10%;
   }
-
-
 }
 
 .blackwave {
@@ -1243,14 +1260,22 @@ label.active {
 
 #promo .promo.active,
 #prices .price.active {
-  animation: popup .4s forwards linear;
+  animation: popup 0.4s forwards linear;
 }
 
 .promo h5 {
   height: 40px;
   font-size: 20px;
   color: var(--secondary);
-  background-image: linear-gradient(to right, var(--primary), var(--primary), var(--accent), var(--accent), var(--accent), var(--slighAccent));
+  background-image: linear-gradient(
+    to right,
+    var(--primary),
+    var(--primary),
+    var(--accent),
+    var(--accent),
+    var(--accent),
+    var(--slighAccent)
+  );
   padding-top: 10px;
   width: 90%;
   position: absolute;
@@ -1288,7 +1313,7 @@ label.active {
 }
 
 .promo p {
-  color: var(--primary)
+  color: var(--primary);
 }
 
 #prices {
@@ -1333,7 +1358,7 @@ label.active {
   top: 150px;
   left: -35px;
   z-index: 3;
-  scale: .3;
+  scale: 0.3;
 }
 
 .price .triangleBox img {
@@ -1370,7 +1395,7 @@ label.active {
   }
 
   80% {
-    scale: .95;
+    scale: 0.95;
     transform: translateY(1px);
   }
 
@@ -1382,38 +1407,37 @@ label.active {
 
 @keyframes flashDot {
   0% {
-    scale: 1
+    scale: 1;
   }
 
   50% {
-    scale: 1.1
+    scale: 1.1;
   }
 
   80% {
-    scale: 1
+    scale: 1;
   }
 
   100% {
-    scale: 1
+    scale: 1;
   }
 }
 
-
 @keyframes flashTriangle {
   0% {
-    scale: 1
+    scale: 1;
   }
 
   50% {
-    scale: 1
+    scale: 1;
   }
 
   80% {
-    scale: .3
+    scale: 0.3;
   }
 
   100% {
-    scale: 1
+    scale: 1;
   }
 }
 
@@ -1456,7 +1480,6 @@ label.active {
   font-size: 20px;
   scale: 1.5;
 }
-
 
 .price .price-roll {
   position: absolute;
@@ -1577,7 +1600,7 @@ label.active {
   right: -20px !important;
   z-index: 2;
   scale: 0.8;
-  animation: wave .6s linear infinite;
+  animation: wave 0.6s linear infinite;
 }
 
 .price .sparkeRight h1 {
@@ -1660,7 +1683,19 @@ label.active {
   /* 
     background-color: var(--secondary);
     */
-  background-image: linear-gradient(to bottom right, var(--secondary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary)
+  );
   color: var(--secondary) !important;
   padding: 0px;
   padding-right: 30px;
@@ -1743,14 +1778,12 @@ label.active {
   box-shadow: 0px 0px 3px var(--primary);
 }
 
-
 .carcard .fullprice-box h1 {
   padding-right: 3px;
   font-size: 56px;
   position: relative;
   top: 20px;
 }
-
 
 .carcard h3 {
   position: relative;
@@ -1766,7 +1799,6 @@ label.active {
 
 .carcard:hover .split .pic-div {
   border-right: 3px solid var(--accent);
-
 }
 
 .carcard .split .pic-div {
@@ -1913,7 +1945,6 @@ label.active {
   border-bottom-left-radius: 10px;
 }
 
-
 .car-split .pic-stack-container {
   position: relative;
   height: 470px;
@@ -1970,7 +2001,7 @@ label.active {
   0% {
     transform: rotateZ(-5deg);
     scale: 0;
-    z-index: 0
+    z-index: 0;
   }
 
   50% {
@@ -1982,19 +2013,19 @@ label.active {
   70% {
     transform: rotateZ(3deg) translateX(-30px);
     scale: 1.1;
-    z-index: 1
+    z-index: 1;
   }
 
   800% {
     transform: rotateZ(2deg) translateX(0px);
     scale: 1.05;
-    z-index: 1
+    z-index: 1;
   }
 
   100% {
     transform: rotateZ(0deg) translateX(0px);
     scale: 1;
-    z-index: 1
+    z-index: 1;
   }
 }
 
@@ -2060,7 +2091,6 @@ label.active {
   font-weight: bold;
 }
 
-
 .booking-details {
   height: 100%;
 }
@@ -2112,7 +2142,6 @@ label.active {
   list-style-type: square;
 }
 
-
 /* BOOKING FORM */
 .double-col .car-form {
   width: 100%;
@@ -2159,7 +2188,8 @@ label.active {
 }
 
 .option-driver,
-.option-pay {
+.option-pay,
+.option-vip {
   padding-left: 5%;
   display: grid;
   grid-template-columns: 1fr 10fr;
@@ -2182,7 +2212,6 @@ label.active {
   border-radius: 50%;
   margin-right: 10px;
   align-items: center;
-
 }
 
 .car-form p span i {
@@ -2349,11 +2378,10 @@ label.active {
 
 .success-div i {
   font-size: 100px;
-  animation: appearList .8s forwards ease;
+  animation: appearList 0.8s forwards ease;
 }
 
 .success-div a {
-
   color: var(--primary);
 }
 
@@ -2399,7 +2427,7 @@ label.active {
 }
 
 .single-contact.active {
-  animation: appearList .4s linear forwards;
+  animation: appearList 0.4s linear forwards;
 }
 
 .single-contact.red {
@@ -2428,7 +2456,7 @@ label.active {
 
 .single-step.active,
 .single-step-divider.active {
-  animation: slideIn .3s linear forwards;
+  animation: slideIn 0.3s linear forwards;
 }
 
 .how-details li {
@@ -2476,14 +2504,13 @@ label.active {
   padding-right: 20px;
 }
 
-
 #lateralSearch h3 {
   color: var(--accent) !important;
 }
 
 .footer-triple {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   text-align: center;
   font-size: 14px;
@@ -2504,8 +2531,6 @@ label.active {
 .footer-triple i {
   font-size: 18px;
 }
-
-
 
 .btcPaysplit {
   display: grid;
@@ -2609,7 +2634,7 @@ b.small {
   color: var(--secondary);
   border: 2px solid var(--primary);
   background-color: var(--primary);
-  animation: appearList .4s forwards linear;
+  animation: appearList 0.4s forwards linear;
 }
 
 .docs-upload-grid label:hover {
@@ -2626,7 +2651,15 @@ b.small {
   padding: 10px 0px;
   width: 90%;
   margin: 20px auto;
-  background-image: linear-gradient(to bottom right, var(--secondary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary)
+  );
   color: var(--secondary);
   font-weight: bold;
   border-radius: 20px;
@@ -2637,7 +2670,15 @@ b.small {
   padding: 10px 0px;
   width: 90%;
   margin: 20px auto;
-  background-image: linear-gradient(to bottom right, var(--secondary), var(--primary), var(--primary), var(--primary), var(--primary), var(--primary));
+  background-image: linear-gradient(
+    to bottom right,
+    var(--secondary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary),
+    var(--primary)
+  );
   color: var(--primary);
   font-weight: bold;
   border-radius: 20px;
@@ -2656,9 +2697,7 @@ b.small {
   font-weight: bold;
 }
 
-
 @media screen and (max-width: 992px) {
-
   .currencySelector {
     max-width: 150px;
     gap: 4px;
@@ -2713,15 +2752,13 @@ b.small {
 
   .double-col .searchContainer.active .form-div {
     /*transform: translateX(0vw);*/
-    animation: showMobSearch .7s forwards ease;
+    animation: showMobSearch 0.7s forwards ease;
   }
 
   @keyframes showMobSearch {
     100% {
-      transform: translateX(0vw)
+      transform: translateX(0vw);
     }
-
-    ;
   }
 
   .double-col .searchContainer.active {
@@ -2732,7 +2769,6 @@ b.small {
   .filter-btn {
     display: none;
   }
-
 
   .site-locator p {
     text-align: center;
@@ -2900,7 +2936,6 @@ b.small {
     border-bottom-left-radius: 10px;
   }
 
-
   .site-locator h1 {
     top: 120px;
   }
@@ -2920,7 +2955,6 @@ b.small {
   .docs-upload-grid label {
     width: 170px;
   }
-
 }
 
 @media screen and (max-width: 850px) {
@@ -2938,9 +2972,7 @@ b.small {
   }
 }
 
-
 @media screen and (max-width: 750px) {
-
   #promo .promo {
     margin-bottom: 50px;
   }
@@ -3016,11 +3048,9 @@ b.small {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-
 }
 
 @media screen and (max-width: 700px) {
-
   #road h1 {
     padding-top: 30px;
     font-size: 50px;
@@ -3051,8 +3081,6 @@ b.small {
       top: 20px;
       right: 5%;
     }
-
-
   }
 
   #promo div.promos,
@@ -3074,7 +3102,7 @@ b.small {
   #hero .form-div {
     top: 20px;
     right: 5%;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(220, 14, 14);
     border-radius: 10px;
     width: 90%;
     padding-bottom: 20px;
@@ -3088,11 +3116,9 @@ b.small {
   .results-container .res-count .filt-mob span {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 650px) {
-
   .double-col {
     padding: 0px !important;
     margin: 0px;
@@ -3212,7 +3238,6 @@ b.small {
   .single-step-divider .counter-mob {
     transform: translateX(11vw);
   }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -3265,7 +3290,6 @@ b.small {
     margin: 2%;
     top: 215px;
   }
-
 }
 
 @media screen and (max-width: 500px) {
@@ -3290,7 +3314,6 @@ b.small {
     width: calc(100% - 10px) !important;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
   }
 
   .booking-details-box {
@@ -3334,9 +3357,6 @@ b.small {
   .ccPrice {
     font-size: 30px !important;
   }
-
-
-
 }
 
 @media screen and (max-width: 450px) {
@@ -3353,9 +3373,7 @@ b.small {
   }
 }
 
-
 @media screen and (max-width: 400px) {
-
   .double-col .features {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -3378,14 +3396,13 @@ b.small {
   }
 }
 
-@media screen and (min-width:1600px) {
+@media screen and (min-width: 1600px) {
   .carcard .pic-box {
     height: 250px !important;
   }
-
 }
 
-@media screen and (min-width:1800px) {
+@media screen and (min-width: 1800px) {
   .car-split {
     height: 800px;
   }
@@ -3403,9 +3420,8 @@ b.small {
   }
 }
 
-@media screen and (min-width:2000px) {
+@media screen and (min-width: 2000px) {
   .carcard .pic-box {
     height: 300px !important;
   }
-
 }

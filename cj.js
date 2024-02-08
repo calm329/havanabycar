@@ -1,63 +1,60 @@
-const nodecron = require('node-cron');
-const models = require('./models/models.js');
-const mailer = require('./helpers/mailer.js');
+const nodecron = require("node-cron");
+const models = require("./models/models.js");
+const mailer = require("./helpers/mailer.js");
 
 const cj = () => {
+  //Inform that term to book has expired
+  nodecron.schedule("5 * * * *", async () => {
+    try {
+      const now = new Date().getTime();
+      const query = {
+        state: "PENDIENTE",
+        isAlerted: true,
+        expiry: { $lte: now },
+      };
 
-    //Inform that term to book has expired
-    nodecron.schedule('5 * * * *', async () => {
-        try {
+      const toBeAlerted = await models.CubaGoldCarBooking.find(query);
+      console.log(toBeAlerted.length, " customers to be alerted");
 
-            const now = new Date().getTime();
-            const query = {
-                state: "PENDIENTE",
-                isAlerted: true,
-                expiry: { $lte: now }
-            };
+      if (toBeAlerted.length < 1) return;
 
-            const toBeAlerted = await models.HavanaCarBooking.find(query);
-            console.log(toBeAlerted.length, " customers to be alerted");
+      for (let i = 0; i < toBeAlerted.length; i++) {
+        await mailer.informExpiration(toBeAlerted[i]);
+        await models.CubaGoldCarBooking.findByIdAndUpdate(toBeAlerted[i]._id, {
+          state: "VENCIDO",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
-            if (toBeAlerted.length < 1) return;
+  //Send Reminder to pay
+  nodecron.schedule("0 * * * *", async () => {
+    try {
+      const now = new Date().getTime();
 
-            for (let i = 0; i < toBeAlerted.length; i++) {
-                await mailer.informExpiration(toBeAlerted[i]);
-                await models.HavanaCarBooking.findByIdAndUpdate(toBeAlerted[i]._id, { state: "VENCIDO" });
-            }
+      const query = {
+        state: "PENDIENTE",
+        isAlerted: false,
+        reminderTrigger: { $lte: now },
+      };
 
-        } catch (error) {
-            console.log(error);
-        }
-    });
+      const toBeAlerted = await models.CubaGoldCarBooking.find(query);
+      console.log(toBeAlerted.length, " customers to be alerted");
 
-    //Send Reminder to pay
-    nodecron.schedule('0 * * * *', async () => {
+      if (toBeAlerted.length < 1) return;
 
-        try {
-
-            const now = new Date().getTime();
-
-            const query = {
-                state: "PENDIENTE",
-                isAlerted: false,
-                reminderTrigger: { $lte: now }
-            };
-
-            const toBeAlerted = await models.HavanaCarBooking.find(query);
-            console.log(toBeAlerted.length, " customers to be alerted");
-
-            if (toBeAlerted.length < 1) return;
-
-            for (let i = 0; i < toBeAlerted.length; i++) {
-                await mailer.sendReminder(toBeAlerted[i]);
-                await models.HavanaCarBooking.findByIdAndUpdate(toBeAlerted[i]._id, { isAlerted: true });
-            }
-
-        } catch (error) {
-            console.log(error);
-        }
-
-    })
+      for (let i = 0; i < toBeAlerted.length; i++) {
+        await mailer.sendReminder(toBeAlerted[i]);
+        await models.CubaGoldCarBooking.findByIdAndUpdate(toBeAlerted[i]._id, {
+          isAlerted: true,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
 };
 
 module.exports = { cj };

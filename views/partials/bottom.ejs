@@ -1,52 +1,58 @@
 <footer>
-    <p class="center" style="color: lightgray">HAVANABYCAR 2023</p>
-    <div class="footer-triple">
-        <div>
-            <a href="<%= footer.usefullL %>">
-                <%= footer.usefull %>
-            </a>
-        </div>
-        <div>
-            <a href="<%= footer.tcL %>">
-                <%= footer.tc %>
-            </a>
-        </div>
-        <div>
-            <a href="<%= footer.privacyL %>">
-                <%= footer.privacy %>
-            </a>
-        </div>
-        <div>
-            <a href="<%= footer.mapL %>">
-                <%= footer.map %>
-            </a>
-        </div>
-        <div>
+  <p class="center" style="color: lightgray">CUBAGOLDCAR 2024</p>
+  <div class="footer-triple">
+    <div>
+      <a href="<%= footer.usefullL %>"> <%= footer.usefull %> </a>
+    </div>
+    <div>
+      <a href="<%= footer.tcL %>"> <%= footer.tc %> </a>
+    </div>
+    <div>
+      <a href="<%= footer.privacyL %>"> <%= footer.privacy %> </a>
+    </div>
+    <div>
+      <a href="<%= footer.mapL %>"> <%= footer.map %> </a>
+    </div>
+    <!-- <div>
             <a href="https://maps.app.goo.gl/L73d6E2Teu85F1Aa8" target="_blank">
                 <%= footer.feedbacks %>
             </a>
-        </div>
+        </div> -->
+  </div>
+  <div class="cards-safety">
+    <div></div>
 
+    <div class="center">
+      <p
+        style="
+          background-color: var(--secondary);
+          display: inline-block;
+          padding: 5px;
+        "
+      >
+        <img
+          src="/static/media/safe_pay.png"
+          alt=""
+          class="safe-pay"
+          style="height: 40px !important"
+        />
+      </p>
     </div>
-    <div class="cards-safety">
 
-        <div></div>
-
-        <div class="center">
-            <p style="background-color: var(--secondary); display: inline-block; padding: 5px;">
-                <img src="/static/media/safe_pay.png" alt="" class="safe-pay" style="height: 40px !important;">
-            </p>
-        </div>
-
-        <div class="center">
-            <p style="background-color: var(--secondary); display: inline-block; padding: 5px;">
-                <img src="/static/media/cards.png" alt="" class="cards-logo">
-            </p>
-        </div>
+    <div class="center">
+      <p
+        style="
+          background-color: var(--secondary);
+          display: inline-block;
+          padding: 5px;
+        "
+      >
+        <img src="/static/media/cards.png" alt="" class="cards-logo" />
+      </p>
     </div>
+  </div>
 </footer>
 
-<%- include('./loader.ejs') %>
-    <%- include('./calendar.ejs') %>
-        <%- include('../components/filterModal.ejs') %>
-            <%- include('../components/extraDayModal.ejs') %>
+<%- include('./loader.ejs') %> <%- include('./calendar.ejs') %> <%-
+include('../components/filterModal.ejs') %> <%-
+include('../components/extraDayModal.ejs') %>

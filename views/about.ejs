@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <%- include('./partials/analytics.ejs') %>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            <%= contents.title %>
-        </title>
-        <meta name="description" content="<%= contents.description %>">
-        <meta name="keywords" content="<%= contents.keywords %>" />
-        <%- include('./partials/seo.ejs') %>
-            <%- include('./partials/head.ejs') %>
-                <script src="/static/js/bundle.js" type="module"></script>
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= contents.title %></title>
+    <meta name="description" content="<%= contents.description %>" />
+    <meta name="keywords" content="<%= contents.keywords %>" />
+    <%- include('./partials/seo.ejs') %> <%- include('./partials/head.ejs') %>
+    <script src="/static/js/bundle.js" type="module"></script>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <%- include('./partials/nav.ejs') %>
-            <%- include('./components/siteLocator.ejs', { itemOne: nav.home, itemTwo: data.lang=="ENG" ? "ABOUT US"
-                : "QUIENES SOMOS" , itemThree: contents.car, hasFilter: false, finalPrice: "" }) %>
+      <%- include('./partials/nav.ejs') %> <%-
+      include('./components/siteLocator.ejs', { itemOne: nav.home, itemTwo:
+      data.lang=="ENG" ? "ABOUT US" : "QUIENES SOMOS" , itemThree: contents.car,
+      hasFilter: false, finalPrice: "" }) %>
 
-                <div class="red-wave-reverse up">
-                    <img src="/static/media/red-wave.svg" alt="">
-                </div>
+      <div class="red-wave-reverse up">
+        <img src="/static/media/red-wave.svg" alt="" />
+      </div>
 
-                <div class="double-col">
+      <div class="double-col">
+        <%- include('./components/lateralSearch.ejs') %>
 
-                    <%- include('./components/lateralSearch.ejs') %>
+        <div class="results-container">
+          <br />
+          <h1><%= contents.title %></h1>
+          <p><%- contents.best %></p>
 
-                        <div class="results-container">
+          <% const config=data.config; %>
 
-                            <br>
-                            <h1>
-                                <%= contents.title %>
-                            </h1>
-                            <p><%- contents.best %></p>
+          <p class="center">
+            <img
+              src="/static/media/office_1.jpg"
+              class="certificate"
+              alt=""
+              style="max-width: 500px"
+            />
+          </p>
 
-                            <% const config=data.config; %>
+          <p>
+            <b><%= contents.our_strength %></b>
+          </p>
 
-                                <p class="">
-                                    <img src="/static/media/office_1.png" class="certificate" alt="">
-                                </p>
+          <p>
+            <span>- <%= contents.our_strength_1 %></span><br />
+            <span>- <%= contents.our_strength_2 %></span><br />
+            <span>- <%= contents.our_strength_3 %></span><br />
+            <span>- <%= contents.our_strength_4 %></span><br />
+            <span>- <%= contents.our_strength_5 %></span><br />
+            <span>- <%= contents.our_strength_6 %></span><br />
+          </p>
 
-                                <p class="center">
+          <!-- <p class="center">
                                     <b>
                                         BOOKING CENTER 24H
                                         <br>
@@ -52,13 +62,32 @@
                                             <br>
                                             <%= config.email.toUpperCase() %>
                                     </b>
-                                </p>
+                                </p> -->
 
-                                <p>
-                                    <img src="/static/media/office_2.jpg" alt="" class="certificate">
-                                </p>
+          <p class="center">
+            <img
+              src="/static/media/office_2.jpg"
+              alt=""
+              class="certificate"
+              style="max-width: 500px"
+            />
+          </p>
 
-                                <!--
+          <p><%- contents.car_rental_experience %></p>
+
+          <p><%= contents.contact_question %></p>
+
+          <p class="center">
+            <b>
+              PHONE: <%= config.phone %>
+              <br />
+              WHATSAPP: <%= config.whatsapp %>
+              <br />
+              <%= config.email.toUpperCase() %>
+            </b>
+          </p>
+
+          <!--
 
                                 
                                 <div>
@@ -93,31 +122,35 @@
 
                             -->
 
-                                <div class="two-equal-cols primary" style="align-items: initial">
-                                    <p>
-                                        <b>AMSTERDAM</b><br>
-                                        Herengracht 370<br>
-                                        1016 BX Amsterdam (The Netherlands)
-                                    </p>
+          <div class="two-equal-cols primary" style="align-items: initial">
+            <p>
+              <img
+                src="/static/media/office_3.jpg"
+                alt=""
+                class="certificate"
+              /><br />
+              <b>Miami Office – United States</b><br />
+              4035 Palm Ave<br />
+              Hiana, leah FL 33012 USA<br />
+              Tel: +1 786 796 1412
+            </p>
 
-                                    <p>
-                                        <b>LA HABANA</b><br>
-                                        Calle 23 y P esq. Infanta<br>
-                                        Plaza de La Revolucion<br>
-                                        Vedado, Habana ( Cuba )
-                                    </p>
-                                </div>
-
-                        </div>
-
-
-
-                </div>
-
+            <p>
+              <img
+                src="/static/media/office_4.jpg"
+                alt=""
+                class="certificate"
+              /><br />
+              <b>Havana Office – Cuba</b><br />
+              7A and 20 Street<br />
+              Miramar – Havana<br />
+              Tel: +53 720 42479
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <%- include('./partials/bottom.ejs', {footer}) %>
-
-</body>
-
+  </body>
 </html>

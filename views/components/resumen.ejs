@@ -1,213 +1,171 @@
 <div class="resumen">
+  <h5><%= contents.car %></h5>
 
-    <h5>
-        <%= contents.car %>
-    </h5>
+  <div class="split">
+    <p>
+      <b><%= contents.model %></b>
+      <br />
+      <%= data.booking.bookedCar.carModel %>
+    </p>
+    <p>
+      <b><%= contents.category %></b>
+      <br />
+      <%= data.booking.bookedCar.carType %>
+    </p>
+    <p>
+      <b><%= contents.duration %></b>
+      <br />
+      <%= data.booking.arrangement.rentalTime %> <%= search.day %>s
+    </p>
+    <p>
+      <b><%= contents.dailyPrice %></b>
+      <br />
+      <%= data.booking.pricing.dailyPrice %> <%= data.booking.currencySymbol %>
+      <%= contents.insuranceIncluded %>
+    </p>
+  </div>
 
-    <div class="split">
-        <p>
-            <b><%= contents.model %></b>
-            <br>
-            <%= data.booking.bookedCar.carModel %>
-        </p>
-        <p>
-            <b><%= contents.category %></b>
-            <br>
-            <%= data.booking.bookedCar.carType %>
-        </p>
-        <p>
-            <b><%= contents.duration %></b>
-            <br>
-            <%= data.booking.arrangement.rentalTime %> <%= search.day %>s
-        </p>
-        <p>
-            <b><%= contents.dailyPrice %></b>
-            <br>
-            <%= data.booking.pricing.dailyPrice %> <%= data.booking.currencySymbol %> 
-            <%= contents.insuranceIncluded %>
-        </p>
-    </div>
+  <h5><%= contents.pickUp %></h5>
 
-    <h5>
-        <%= contents.pickUp %>
-    </h5>
+  <div class="split">
+    <p>
+      <b><%= search.date %></b>
+      <br />
+      <%= data.booking.arrangement.startString %> (<%=
+      data.booking.arrangement.pickupTime %>)
+    </p>
+    <p>
+      <b><%= search.place %></b>
+      <br />
+      <%= data.booking.arrangement.pickOffice.replace(/\(H24\)/, '') %> - <%=
+      data.booking.arrangement.city %>
+    </p>
+  </div>
 
-    <div class="split">
-        <p>
-            <b><%= search.date %></b>
-            <br>
-            <%= data.booking.arrangement.startString %>
-            (<%= data.booking.arrangement.pickupTime %>)
-        </p>
-        <p>
-            <b><%= search.place %></b>
-            <br>
-            <%= data.booking.arrangement.pickOffice.replace(/\(H24\)/, '') %>
-            - <%= data.booking.arrangement.city %>
-        </p>
-    </div>
+  <h5><%= contents.dropOff %></h5>
 
-    <h5>
-        <%= contents.dropOff %>
-    </h5>
+  <div class="split">
+    <p>
+      <b><%= search.date %></b>
+      <br />
+      <%= data.booking.arrangement.finishString %> (<%=
+      data.booking.arrangement.dropoffTime %>)
+    </p>
+    <p>
+      <b><%= search.place %></b>
+      <br />
+      <%= data.booking.arrangement.dropoffOffice.replace(/\(H24\)/, '') %> - <%=
+      data.booking.arrangement.dropoffCity %>
+    </p>
+  </div>
 
-    <div class="split">
-        <p>
-            <b><%= search.date %></b>
-            <br>
-            <%= data.booking.arrangement.finishString %>
-            (<%= data.booking.arrangement.dropoffTime %>)
-        </p>
-        <p>
-            <b><%= search.place %></b>
-            <br>
-            <%= data.booking.arrangement.dropoffOffice.replace(/\(H24\)/, '') %>
-            - <%= data.booking.arrangement.dropoffCity %>
-        </p>
-    </div>
+  <h5><%= search.driver %></h5>
+  <div class="split">
+    <p>
+      <b><%= contents.driver %>:</b>
+      <br />
+      <%= data.booking.driver.name %> <%= data.booking.driver.surname %>
+    </p>
+    <p>
+      <b>Email:</b>
+      <br />
+      <%= data.booking.driver.email %>
+    </p>
+    <p>
+      <b><%= search.phone%>:</b>
+      <br />
+      <%= data.booking.driver.phone %>
+    </p>
+    <p>
+      <b><%= search.birth%>:</b>
+      <br />
+      <%= data.booking.driver.birth %>
+    </p>
+    <p>
+      <b><%= search.passport%>:</b>
+      <br />
+      <%= data.booking.driver.passport %>
+    </p>
+    <p>
+      <b><%= search.nationality%>:</b>
+      <br />
+      <%= data.booking.driver.country %>
+    </p>
+  </div>
 
-    <h5>
-        <%= search.driver %>
-    </h5>
-    <div class="split">
-        <p>
-            <b><%= contents.driver %>:</b>
-            <br>
-            <%= data.booking.driver.name %> <%= data.booking.driver.surname %>
-        </p>
-        <p>
-            <b>Email:</b>
-            <br>
-            <%= data.booking.driver.email %>
-        </p>
-        <p>
-            <b><%= search.phone%>:</b>
-            <br>
-            <%= data.booking.driver.phone %>
-        </p>
-        <p>
-            <b><%= search.birth%>:</b>
-            <br>
-            <%= data.booking.driver.birth %>
-        </p>
-        <p>
-            <b><%= search.passport%>:</b>
-            <br>
-            <%= data.booking.driver.passport %>
-        </p>
-        <p>
-            <b><%= search.nationality%>:</b>
-            <br>
-            <%= data.booking.driver.country %>
-        </p>
-    </div>
-    
-    <h5><%= contents.includes %></h5>
+  <h5><%= contents.includes %></h5>
 
-    <div class="split">
-        <p>
-            <b><%= contents.cost %></b>
-            <br>
-            <%= data.booking.pricing.carTotal %> <%= data.booking.currencySymbol %>
-        </p>
+  <div class="split">
+    <p>
+      <b><%= contents.cost %></b>
+      <br />
+      <%= data.booking.pricing.carTotal %> <%= data.booking.currencySymbol %>
+    </p>
 
-        <p>
-            <%- contents.extraPetrol %>
-            60 <%= data.booking.currencySymbol %>
-        </p>
-        
+    <p><%- contents.extraPetrol %> 60 <%= data.booking.currencySymbol %></p>
 
-        <% if(data.booking.pricing.airportPickUp > 0) { %>
-            <p>
-                <%- contents.extraAirport %> 
-                25 <%= data.booking.currencySymbol %>
-            </p>
-            
-        <% } %>
+    <% if(data.booking.pricing.airportPickUp > 0) { %>
+    <p><%- contents.extraAirport %> 25 <%= data.booking.currencySymbol %></p>
 
-        <% if(data.booking.pricing.returnInDifferentCity > 0) { %>
-            <p>
-                <%- contents.extraReturn %>
-                35 <%= data.booking.currencySymbol %>
-            </p>
-        <% } %>
-
-        <% if(data.booking.pricing.secondDriver > 0) { %>
-            <p>
-                <%- contents.extraDriver %>
-                35 <%= data.booking.currencySymbol %>
-            </p>
-        <% } %>
-
-        <% if(data.booking.pricing.lateReturn > 0) { %>
-            <p>
-                <b><%= contents.lateReturn %> <%= data.booking.arrangement.pickupTime %></b>
-                <br>
-                <%= data.booking.pricing.lateReturn %> <%= data.booking.currencySymbol %>
-            </p>
-        <% } %>
-
-        <% if(data.booking.paymentMethod == "creditCardPay") { %>
-            <p>
-                <%- contents.creditCardDiscount %>
-                <br>
-                <%= data.booking.discounts[data.booking.paymentMethod] %> <%= data.booking.currencySymbol %>
-            </p>
-        <% } %>
-
-    </div>
-
-    <% if(showVoucher == true) { %>
-
-        <%- include('./voucherForm.ejs') %>
-
-        <div class="split">
-            <div></div>
-            <%- include('./summaryTotal.ejs', {showBookingBtn: showVoucher}) %>
-        </div>
-    
+    <% } %> <% if(data.booking.pricing.returnInDifferentCity > 0) { %>
+    <p><%- contents.extraReturn %> 35 <%= data.booking.currencySymbol %></p>
+    <% } %> <% if(data.booking.pricing.secondDriver > 0) { %>
+    <p><%- contents.extraDriver %> 35 <%= data.booking.currencySymbol %></p>
+    <% } %> <% if(data.booking.pricing.vipAssistant > 0) { %>
+    <p><%- contents.vipAssistant %> 80 <%= data.booking.currencySymbol %></p>
+    <% } %> <% if(data.booking.pricing.lateReturn > 0) { %>
+    <p>
+      <b
+        ><%= contents.lateReturn %> <%= data.booking.arrangement.pickupTime
+        %></b
+      >
+      <br />
+      <%= data.booking.pricing.lateReturn %> <%= data.booking.currencySymbol %>
+    </p>
+    <% } %> <% if(data.booking.paymentMethod == "creditCardPay") { %>
+    <p>
+      <%- contents.creditCardDiscount %>
+      <br />
+      <%= data.booking.discounts[data.booking.paymentMethod] %> <%=
+      data.booking.currencySymbol %>
+    </p>
     <% } %>
+  </div>
 
-    <% if(
-            showVoucher == false && 
-            (
-                data.booking.paymentMethod == "zellePay" ||
-                data.booking.paymentMethod == "btcPay" ||
-                data.booking.voucherCode != ""
-            )
-        ){ %>
-        <h5>
-            <%= contents.discounts %>
-        </h5>
-    
-        <div class="split">
+  <% if(showVoucher == true) { %> <%- include('./voucherForm.ejs') %>
 
-            <% if(data.booking.paymentMethod == "zellePay") { %>
-                <p>
-                    <b><%= contents.zelleDiscount %></b>
-                    <br>
-                    <%= data.booking.discounts.zellePay %> <%= data.booking.currencySymbol %>
-                </p>
-            <% } %>
+  <div class="split">
+    <div></div>
+    <%- include('./summaryTotal.ejs', {showBookingBtn: showVoucher}) %>
+  </div>
 
-            <% if(data.booking.paymentMethod == "btcPay") { %>
-                <p>
-                    <b><%= contents.btcDiscount %></b>
-                    <br>
-                    <%= data.booking.discounts.btcPay %> <%= data.booking.currencySymbol %>
-                </p>
-            <% } %>
+  <% } %> <% if( showVoucher == false && ( data.booking.paymentMethod ==
+  "zellePay" || data.booking.paymentMethod == "btcPay" ||
+  data.booking.voucherCode != "" ) ){ %>
+  <h5><%= contents.discounts %></h5>
 
-            <% if(data.booking.voucherCode != "") { %>
-                <p>
-                    <b><%= contents.voucherDiscount %></b>
-                    <br>
-                    <%= data.booking.discounts.voucherDiscount %> <%= data.booking.currencySymbol %>
-                </p>
-            <% } %>
-
-        </div>
-
+  <div class="split">
+    <% if(data.booking.paymentMethod == "zellePay") { %>
+    <p>
+      <b><%= contents.zelleDiscount %></b>
+      <br />
+      <%= data.booking.discounts.zellePay %> <%= data.booking.currencySymbol %>
+    </p>
+    <% } %> <% if(data.booking.paymentMethod == "btcPay") { %>
+    <p>
+      <b><%= contents.btcDiscount %></b>
+      <br />
+      <%= data.booking.discounts.btcPay %> <%= data.booking.currencySymbol %>
+    </p>
+    <% } %> <% if(data.booking.voucherCode != "") { %>
+    <p>
+      <b><%= contents.voucherDiscount %></b>
+      <br />
+      <%= data.booking.discounts.voucherDiscount %> <%=
+      data.booking.currencySymbol %>
+    </p>
     <% } %>
-    
+  </div>
+
+  <% } %>
 </div>

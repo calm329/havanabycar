@@ -265,7 +265,7 @@ const makeFinalVoucher = (booking) => {
 
         const options = {};
 
-        const target = path.join(__dirname, "../static/pdf/", String(booking._id), "/booking-HAVANABYCAR.pdf");
+        const target = path.join(__dirname, "../static/pdf/", String(booking._id), "/booking-CUBAGOLDCAR.pdf");
         const pdfDoc = printer.createPdfKitDocument(docDefinition, options);
         pdfDoc.pipe(fs.createWriteStream(target));
         pdfDoc.end();
@@ -825,7 +825,7 @@ const make = (booking) => {
 
         const options = {};
 
-        const target = path.join(__dirname, "../static/pdf/", String(booking._id), "/invoice-HAVANABYCAR.pdf");
+        const target = path.join(__dirname, "../static/pdf/", String(booking._id), "/invoice-CUBAGOLDCAR.pdf");
         const pdfDoc = printer.createPdfKitDocument(docDefinition, options);
         pdfDoc.pipe(fs.createWriteStream(target));
         pdfDoc.end();

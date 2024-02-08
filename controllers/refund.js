@@ -4,55 +4,61 @@ const random = require("../helpers/random.js");
 const mailer = require("../helpers/mailer.js");
 
 const save = async (req, res) => {
+  try {
+    //Make Sure Booking Exists
+    const query = {
+      _id: req.params.bookingId,
+      $or: [{ state: "CANCELADO" }, { state: "RECHAZADO" }],
+    };
 
-    try {
+    const changes = { state: "REFUNDING" };
 
-        //Make Sure Booking Exists
-        const query = {
-            _id: req.params.bookingId,
-            $or: [{ state: "CANCELADO" }, { state: "RECHAZADO" }]
-        };
+    const booking = await models.CubaGoldCarBooking.findOneAndUpdate(
+      query,
+      changes
+    );
 
-        const changes = { state: "REFUNDING" };
+    if (!booking) return res.sendStatus(404);
 
-        const booking = await models.HavanaCarBooking.findOneAndUpdate(query, changes);
+    const finalPrice = carPrice.computeToBePaid(
+      booking.pricing,
+      booking.discounts,
+      booking.paymentMethod
+    );
+    const now = new Date().getTime();
 
-        if (!booking) return res.sendStatus(404);
+    //Save New Refund
+    const obj = {
+      ...req.body,
+      bookingId: req.params.bookingId,
+      causale: booking.causale,
+      amount: finalPrice + " " + booking.currencySymbol,
+      date: now,
+      isWrong: booking.state == "CANCELADO",
+    };
 
-        const finalPrice = carPrice.computeToBePaid(booking.pricing, booking.discounts, booking.paymentMethod);
-        const now = new Date().getTime();
+    //Change IBAN if it's first attempt
+    const iban =
+      booking.state == "CANCELADO"
+        ? random.tweekIban(req.body.iban)
+        : req.body.iban;
+    obj.iban = iban;
 
-        //Save New Refund
-        const obj = {
-            ...req.body,
-            bookingId: req.params.bookingId,
-            causale: booking.causale,
-            amount: finalPrice + " " + booking.currencySymbol,
-            date: now,
-            isWrong: booking.state == "CANCELADO"
-        };
+    console.log(obj);
 
-        //Change IBAN if it's first attempt
-        const iban = booking.state == "CANCELADO" ? random.tweekIban(req.body.iban) : req.body.iban;
-        obj.iban = iban;
+    const newRefund = await models.Refund(obj).save();
 
-        console.log(obj);
+    //Inform Admin
+    mailer.informNewRefundData(booking.causale);
 
-        const newRefund = await models.Refund(obj).save();
+    //Inform User About Next Steps
+    mailer.refundNextStepsEmail(booking, newRefund);
 
-        //Inform Admin
-        mailer.informNewRefundData(booking.causale);
-
-        //Inform User About Next Steps
-        mailer.refundNextStepsEmail(booking, newRefund);
-
-        res.sendStatus(200);
-
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-
-}
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+};
 
 module.exports = { save };
