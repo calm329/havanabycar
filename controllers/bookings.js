@@ -71,7 +71,7 @@ const create = async (req, res) => {
     const dailyPrice =
       car.price[req.body.currency][carPrice.isHigh(startMS, lowSeasons)][
         carPrice.timeSpan(rentalTime)
-      ] - config.geminiDiscount;
+      ] - config.geminiDiscount[req.body.currency];
     const carTotal = dailyPrice * rentalTime;
     const lateReturn = req.body.lateReturn == true ? Number(dailyPrice) : 0;
     const airportPickUp = req.body.arrangement.city.includes("Airport")

@@ -1,5 +1,8 @@
 const config = {
-  geminiDiscount: 10,
+  geminiDiscount: {
+    USD: 18,
+    EUR: 15,
+  },
   phone: "+1 786 796 1412",
   whatsapp: "+1 814 300 8332",
   email: "booking@cubagoldcar.com",
